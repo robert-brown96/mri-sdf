@@ -1,0 +1,591 @@
+<customrecordtype scriptid="customrecord_cseg_scg_act_code">
+  <allowattachments>F</allowattachments>
+  <allowinlinedeleting>F</allowinlinedeleting>
+  <allowinlinedetaching>F</allowinlinedetaching>
+  <allowinlineediting>F</allowinlineediting>
+  <allowquickadd>F</allowquickadd>
+  <allowquicksearch>F</allowquicksearch>
+  <customsegment>[type=customsegment, scriptid=cseg_scg_act_code]</customsegment>
+  <enabledle>F</enabledle>
+  <enablekeywords>F</enablekeywords>
+  <enablemailmerge>F</enablemailmerge>
+  <enableoptimisticlocking>F</enableoptimisticlocking>
+  <enablesystemnotes>T</enablesystemnotes>
+  <icon></icon>
+  <iconbuiltin>T</iconbuiltin>
+  <iconindex></iconindex>
+  <includeinsearchmenu>F</includeinsearchmenu>
+  <showcreationdate>F</showcreationdate>
+  <showcreationdateonlist>F</showcreationdateonlist>
+  <showlastmodified>F</showlastmodified>
+  <showlastmodifiedonlist>F</showlastmodifiedonlist>
+  <shownotes>T</shownotes>
+  <showowner>F</showowner>
+  <showownerallowchange>F</showownerallowchange>
+  <showowneronlist>F</showowneronlist>
+  <customrecordcustomfields>
+    <customrecordcustomfield scriptid="custrecord_scg_code_act">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Field Code ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>T</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+    <customrecordcustomfield scriptid="custrecord_scg_act_desc">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Description</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>T</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+  </customrecordcustomfields>
+  <instances>
+    <instance scriptid="val_50884_1126916_861">
+      <custrecord_scg_act_desc>Deal Related Acquisition Related Costs</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>100</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>100 - Deal Related Acquisition Related Costs</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_50885_1126916_256">
+      <custrecord_scg_act_desc>RHR</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>101</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>101 - RHR</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50886_1126916_900">
+      <custrecord_scg_act_desc>CTM</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>102</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>102 - CTM</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50887_1126916_293">
+      <custrecord_scg_act_desc>Engage</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>103</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>103 - Engage</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50888_1126916_857">
+      <custrecord_scg_act_desc>DLS</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>104</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>104 - DLS</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50889_1126916_443">
+      <custrecord_scg_act_desc>ProCalc</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>105</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>105 - ProCalc</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50890_1126916_563">
+      <custrecord_scg_act_desc>Link</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>106</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>106 - Link</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50891_1126916_643">
+      <custrecord_scg_act_desc>Rockend</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>107</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>107 - Rockend</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50892_1126916_836">
+      <custrecord_scg_act_desc>Leverton</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>108</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>108 - Leverton</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50893_1126916_310">
+      <custrecord_scg_act_desc>MFIP</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>109</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>109 - MFIP</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50894_1126916_322">
+      <custrecord_scg_act_desc>Lindsey</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>110</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>110 - Lindsey</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50895_1126916_564">
+      <custrecord_scg_act_desc>Orchard</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>111</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>111 - Orchard</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50896_1126916_162">
+      <custrecord_scg_act_desc>Castleton</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>112</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>112 - Castleton</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50897_1126916_586">
+      <custrecord_scg_act_desc>HousingPartners</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>113</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>113 - HousingPartners</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50898_1126916_833">
+      <custrecord_scg_act_desc>MacMunnis</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>114</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>114 - MacMunnis</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50899_1126916_841">
+      <custrecord_scg_act_desc>RentPayments</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>115</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>115 - RentPayments</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50900_1126916_597">
+      <custrecord_scg_act_desc>Checkpoint</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>116</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>116 - Checkpoint</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50901_1126916_805">
+      <custrecord_scg_act_desc>Jenark</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>117</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>117 - Jenark</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50902_1126916_947">
+      <custrecord_scg_act_desc>AMT</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>118</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>118 - AMT</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50903_1126916_171">
+      <custrecord_scg_act_desc>WOL</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>119</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>119 - WOL</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50904_1126916_757">
+      <custrecord_scg_act_desc>Palace</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>120</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>120 - Palace</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50905_1126916_187">
+      <custrecord_scg_act_desc>Manhattan</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>121</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>121 - Manhattan</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50906_1126916_135">
+      <custrecord_scg_act_desc>Findspace</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>122</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>122 - Findspace</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50907_1126916_893">
+      <custrecord_scg_act_desc>FSI</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>123</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>123 - FSI</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50908_1126916_172">
+      <custrecord_scg_act_desc>Box and Dice</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>124</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>124 - Box and Dice</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50909_1126916_497">
+      <custrecord_scg_act_desc>eSight</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>125</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>125 - eSight</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50910_1126916_245">
+      <custrecord_scg_act_desc>Other/Misc</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>199</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>199 - Other/Misc</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_50911_1126916_147">
+      <custrecord_scg_act_desc>Integration Related Acquisition Related Costs</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>200</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>200 - Integration Related Acquisition Related Costs</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_50912_1126916_651">
+      <custrecord_scg_act_desc>RHR</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>201</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>201 - RHR</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50913_1126916_209">
+      <custrecord_scg_act_desc>CTM</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>202</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>202 - CTM</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50914_1126916_666">
+      <custrecord_scg_act_desc>Engage</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>203</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>203 - Engage</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50915_1126916_407">
+      <custrecord_scg_act_desc>DLS</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>204</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>204 - DLS</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50916_1126916_966">
+      <custrecord_scg_act_desc>ProCalc</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>205</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>205 - ProCalc</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50917_1126916_248">
+      <custrecord_scg_act_desc>Link</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>206</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>206 - Link</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50918_1126916_357">
+      <custrecord_scg_act_desc>Rockend</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>207</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>207 - Rockend</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50919_1126916_866">
+      <custrecord_scg_act_desc>Leverton</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>208</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>208 - Leverton</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50920_1126916_392">
+      <custrecord_scg_act_desc>MFIP</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>209</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>209 - MFIP</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50921_1126916_165">
+      <custrecord_scg_act_desc>Lindsey</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>210</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>210 - Lindsey</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50922_1126916_223">
+      <custrecord_scg_act_desc>Orchard</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>211</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>211 - Orchard</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50923_1126916_246">
+      <custrecord_scg_act_desc>Castleton</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>212</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>212 - Castleton</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50924_1126916_500">
+      <custrecord_scg_act_desc>HousingPartners</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>213</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>213 - HousingPartners</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50925_1126916_545">
+      <custrecord_scg_act_desc>MacMunnis</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>214</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>214 - MacMunnis</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50926_1126916_322">
+      <custrecord_scg_act_desc>RentPayments</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>215</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>215 - RentPayments</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50927_1126916_423">
+      <custrecord_scg_act_desc>Checkpoint</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>216</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>216 - Checkpoint</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50928_1126916_469">
+      <custrecord_scg_act_desc>Jenark</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>217</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>217 - Jenark</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50929_1126916_160">
+      <custrecord_scg_act_desc>AMT</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>218</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>218 - AMT</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50930_1126916_661">
+      <custrecord_scg_act_desc>WOL</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>219</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>219 - WOL</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50931_1126916_434">
+      <custrecord_scg_act_desc>Palace</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>220</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>220 - Palace</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50932_1126916_915">
+      <custrecord_scg_act_desc>Manhattan</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>221</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>221 - Manhattan</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50933_1126916_216">
+      <custrecord_scg_act_desc>Findspace</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>222</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>222 - Findspace</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50934_1126916_287">
+      <custrecord_scg_act_desc>FSI</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>223</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>223 - FSI</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50935_1126916_988">
+      <custrecord_scg_act_desc>Box and Dice</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>224</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>224 - Box and Dice</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50936_1126916_853">
+      <custrecord_scg_act_desc>eSight</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>225</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>225 - eSight</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50937_1126916_967">
+      <custrecord_scg_act_desc>Other/Misc</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>299</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>299 - Other/Misc</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_50938_1126916_305">
+      <custrecord_scg_act_desc>Activity Based Project Code</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>600</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>600 - Activity Based Project Code</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_50939_1126916_701">
+      <custrecord_scg_act_desc>Partner Connect</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>601</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>601 - Partner Connect</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_50940_1126916_999">
+      <custrecord_scg_act_desc>Ascend</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>602</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>602 - Ascend</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_50941_1126916_410">
+      <custrecord_scg_act_desc>Sales Kickoff</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>603</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>603 - Sales Kickoff</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_50942_1126916_963">
+      <custrecord_scg_act_desc>Circle of Excellence</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>604</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>604 - Circle of Excellence</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_50943_1126916_208">
+      <custrecord_scg_act_desc>Payments</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>605</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>605 - Payments</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_1240835_1126916_792">
+      <custrecord_scg_act_desc>LeaseEagle</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>126</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>126 - LeaseEagle</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_1240838_1126916_551">
+      <custrecord_scg_act_desc>Angus</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>127</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>127 - Angus</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50884_1126916_861]</parent>
+    </instance>
+    <instance scriptid="val_1240839_1126916_337">
+      <custrecord_scg_act_desc>LeaseEagle</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>226</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>226 - LeaseEagle</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_1240840_1126916_306">
+      <custrecord_scg_act_desc>Angus</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>227</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>227 - Angus</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
+    </instance>
+    <instance scriptid="val_1249455_1126916_198">
+      <custrecord_scg_act_desc>PE Group Related</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>606</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>606 - PE Group Related</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_1249456_1126916_975">
+      <custrecord_scg_act_desc>Debt Financing Related</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>607</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>607 - Debt Financing Related</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_1249459_1126916_601">
+      <custrecord_scg_act_desc>Redundant Vendor Cost</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>608</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>608 - Redundant Vendor Cost</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+    <instance scriptid="val_1249463_1126916_797">
+      <custrecord_scg_act_desc>Payroll BTL</custrecord_scg_act_desc>
+      <custrecord_scg_code_act>609</custrecord_scg_code_act>
+      <isinactive>F</isinactive>
+      <name>609 - Payroll BTL</name>
+      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
+    </instance>
+  </instances>
+  <links>
+    <link>
+      <linkcategory>BASICSETUPCOMPANY</linkcategory>
+      <linklabel></linklabel>
+      <linktasktype>LIST</linktasktype>
+    </link>
+  </links>
+</customrecordtype>

@@ -1,0 +1,44 @@
+<customlist scriptid="customlist_scg_credit_reasons">
+  <description></description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>Credit Reason Codes</name>
+  <customvalues>
+    <customvalue scriptid="val_15086_1126916_sb1_152">
+      <isinactive>F</isinactive>
+      <value>Client Concession</value>
+    </customvalue>
+    <customvalue scriptid="val_15087_1126916_sb1_769">
+      <isinactive>F</isinactive>
+      <value>Finance Write-Off</value>
+    </customvalue>
+    <customvalue scriptid="val_15088_1126916_sb1_923">
+      <isinactive>F</isinactive>
+      <value>GPS Issue</value>
+    </customvalue>
+    <customvalue scriptid="val_15089_1126916_sb1_955">
+      <isinactive>F</isinactive>
+      <value>Product Issue</value>
+    </customvalue>
+    <customvalue scriptid="val_15090_1126916_sb1_984">
+      <isinactive>F</isinactive>
+      <value>Rebill</value>
+    </customvalue>
+    <customvalue scriptid="val_15091_1126916_sb1_374">
+      <isinactive>F</isinactive>
+      <value>Manager Approval</value>
+    </customvalue>
+    <customvalue scriptid="val_15092_1126916_sb1_143">
+      <isinactive>F</isinactive>
+      <value>Termination</value>
+    </customvalue>
+    <customvalue scriptid="val_1335327_1126916_sb1_369">
+      <isinactive>F</isinactive>
+      <value>Customer Rebate</value>
+    </customvalue>
+    <customvalue scriptid="val_890007_1126916_513">
+      <isinactive>F</isinactive>
+      <value>Migration</value>
+    </customvalue>
+  </customvalues>
+</customlist>

@@ -1,0 +1,318 @@
+<customrecordtype scriptid="customrecord_cseg_scg_cus_class">
+  <allowattachments>F</allowattachments>
+  <allowinlinedeleting>F</allowinlinedeleting>
+  <allowinlinedetaching>F</allowinlinedetaching>
+  <allowinlineediting>F</allowinlineediting>
+  <allowquickadd>F</allowquickadd>
+  <allowquicksearch>F</allowquicksearch>
+  <customsegment>[type=customsegment, scriptid=cseg_scg_cus_class]</customsegment>
+  <enabledle>F</enabledle>
+  <enablekeywords>F</enablekeywords>
+  <enablemailmerge>F</enablemailmerge>
+  <enableoptimisticlocking>F</enableoptimisticlocking>
+  <enablesystemnotes>T</enablesystemnotes>
+  <icon></icon>
+  <iconbuiltin>T</iconbuiltin>
+  <iconindex></iconindex>
+  <includeinsearchmenu>F</includeinsearchmenu>
+  <showcreationdate>F</showcreationdate>
+  <showcreationdateonlist>F</showcreationdateonlist>
+  <showlastmodified>F</showlastmodified>
+  <showlastmodifiedonlist>F</showlastmodifiedonlist>
+  <shownotes>T</shownotes>
+  <showowner>F</showowner>
+  <showownerallowchange>F</showownerallowchange>
+  <showowneronlist>F</showowneronlist>
+  <customrecordcustomfields>
+    <customrecordcustomfield scriptid="custrecord_scg_code_cus_class">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Field Code ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+    <customrecordcustomfield scriptid="custrecord_scg_cus_class_desc">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Description</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+  </customrecordcustomfields>
+  <instances>
+    <instance scriptid="val_52716_1126916_854">
+      <custrecord_scg_code_cus_class>000</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Commercial Property Class</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>000 - Commercial Property Class</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52717_1126916_338">
+      <custrecord_scg_code_cus_class>001</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Retail</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>001 - Retail</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52718_1126916_606">
+      <custrecord_scg_code_cus_class>002</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Office</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>002 - Office</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52719_1126916_182">
+      <custrecord_scg_code_cus_class>003</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Industrial</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>003 - Industrial</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52720_1126916_491">
+      <custrecord_scg_code_cus_class>004</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Occupiers</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>004 - Occupiers</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52721_1126916_256">
+      <custrecord_scg_code_cus_class>005</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Fee Managers</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>005 - Fee Managers</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52722_1126916_626">
+      <custrecord_scg_code_cus_class>006</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Mixed Use</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>006 - Mixed Use</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52723_1126916_876">
+      <custrecord_scg_code_cus_class>007</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Healthcare</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>007 - Healthcare</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52724_1126916_462">
+      <custrecord_scg_code_cus_class>008</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Land</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>008 - Land</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52725_1126916_401">
+      <custrecord_scg_code_cus_class>009</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Storage</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>009 - Storage</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52726_1126916_945">
+      <custrecord_scg_code_cus_class>010</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Public</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>010 - Public</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52727_1126916_622">
+      <custrecord_scg_code_cus_class>099</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Other</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>099 - Other</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52716_1126916_854]</parent>
+    </instance>
+    <instance scriptid="val_52728_1126916_928">
+      <custrecord_scg_code_cus_class>100</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Residential Property Class</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>100 - Residential Property Class</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52729_1126916_764">
+      <custrecord_scg_code_cus_class>101</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Conventional</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>101 - Conventional</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52730_1126916_383">
+      <custrecord_scg_code_cus_class>102</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Affordable</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>102 - Affordable</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52731_1126916_869">
+      <custrecord_scg_code_cus_class>103</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Public/Social</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>103 - Public/Social</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52732_1126916_523">
+      <custrecord_scg_code_cus_class>104</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Rent Controlled</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>104 - Rent Controlled</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52733_1126916_642">
+      <custrecord_scg_code_cus_class>105</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Student</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>105 - Student</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52734_1126916_904">
+      <custrecord_scg_code_cus_class>106</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Senior</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>106 - Senior</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52735_1126916_156">
+      <custrecord_scg_code_cus_class>107</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Single Family</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>107 - Single Family</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52736_1126916_580">
+      <custrecord_scg_code_cus_class>108</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Condo / HOA</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>108 - Condo / HOA</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52737_1126916_404">
+      <custrecord_scg_code_cus_class>109</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Military</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>109 - Military</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52738_1126916_156">
+      <custrecord_scg_code_cus_class>199</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Other</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>199 - Other</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52728_1126916_928]</parent>
+    </instance>
+    <instance scriptid="val_52739_1126916_569">
+      <custrecord_scg_code_cus_class>200</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Corporate Property Class</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>200 - Corporate Property Class</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52740_1126916_810">
+      <custrecord_scg_code_cus_class>201</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Equipment</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>201 - Equipment</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52739_1126916_569]</parent>
+    </instance>
+    <instance scriptid="val_52741_1126916_832">
+      <custrecord_scg_code_cus_class>202</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Industrial</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>202 - Industrial</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52739_1126916_569]</parent>
+    </instance>
+    <instance scriptid="val_52742_1126916_589">
+      <custrecord_scg_code_cus_class>203</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Office</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>203 - Office</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52739_1126916_569]</parent>
+    </instance>
+    <instance scriptid="val_52743_1126916_312">
+      <custrecord_scg_code_cus_class>204</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Retail</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>204 - Retail</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52739_1126916_569]</parent>
+    </instance>
+    <instance scriptid="val_52744_1126916_928">
+      <custrecord_scg_code_cus_class>299</custrecord_scg_code_cus_class>
+      <custrecord_scg_cus_class_desc>Other</custrecord_scg_cus_class_desc>
+      <isinactive>F</isinactive>
+      <name>299 - Other</name>
+      <parent>[scriptid=customrecord_cseg_scg_cus_class.val_52739_1126916_569]</parent>
+    </instance>
+  </instances>
+  <links>
+    <link>
+      <linkcategory>BASICSETUPCOMPANY</linkcategory>
+      <linklabel></linklabel>
+      <linktasktype>LIST</linktasktype>
+    </link>
+  </links>
+</customrecordtype>

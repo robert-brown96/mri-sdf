@@ -1,0 +1,185 @@
+<customrecordtype scriptid="customrecord_cseg_scg_owner_stru">
+  <allowattachments>F</allowattachments>
+  <allowinlinedeleting>F</allowinlinedeleting>
+  <allowinlinedetaching>F</allowinlinedetaching>
+  <allowinlineediting>F</allowinlineediting>
+  <allowquickadd>F</allowquickadd>
+  <allowquicksearch>F</allowquicksearch>
+  <customsegment>[type=customsegment, scriptid=cseg_scg_owner_stru]</customsegment>
+  <enabledle>F</enabledle>
+  <enablekeywords>F</enablekeywords>
+  <enablemailmerge>F</enablemailmerge>
+  <enableoptimisticlocking>F</enableoptimisticlocking>
+  <enablesystemnotes>T</enablesystemnotes>
+  <icon></icon>
+  <iconbuiltin>T</iconbuiltin>
+  <iconindex></iconindex>
+  <includeinsearchmenu>F</includeinsearchmenu>
+  <showcreationdate>F</showcreationdate>
+  <showcreationdateonlist>F</showcreationdateonlist>
+  <showlastmodified>F</showlastmodified>
+  <showlastmodifiedonlist>F</showlastmodifiedonlist>
+  <shownotes>T</shownotes>
+  <showowner>F</showowner>
+  <showownerallowchange>F</showownerallowchange>
+  <showowneronlist>F</showowneronlist>
+  <customrecordcustomfields>
+    <customrecordcustomfield scriptid="custrecord_scg_code_owner_struc">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Field Code ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+    <customrecordcustomfield scriptid="custrecord_scg_owner_desc">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Description</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+  </customrecordcustomfields>
+  <instances>
+    <instance scriptid="val_52705_1126916_237">
+      <custrecord_scg_code_owner_struc>04</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Private</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>10 - Private</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52706_1126916_358">
+      <custrecord_scg_code_owner_struc>11</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Institutional</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>11 - Institutional</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52705_1126916_237]</parent>
+    </instance>
+    <instance scriptid="val_52707_1126916_663">
+      <custrecord_scg_code_owner_struc>12</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Pension Fund</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>12 - Pension Fund</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52705_1126916_237]</parent>
+    </instance>
+    <instance scriptid="val_52708_1126916_942">
+      <custrecord_scg_code_owner_struc>13</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Private Equity</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>13 - Private Equity</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52705_1126916_237]</parent>
+    </instance>
+    <instance scriptid="val_52709_1126916_675">
+      <custrecord_scg_code_owner_struc>14</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Sole/Family/Trust</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>14 - Sole/Family/Trust</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52705_1126916_237]</parent>
+    </instance>
+    <instance scriptid="val_52712_1126916_478">
+      <custrecord_scg_code_owner_struc>00</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Public</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>00 - Public</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52713_1126916_836">
+      <custrecord_scg_code_owner_struc>01</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>REIT</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>01 - REIT</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52712_1126916_478]</parent>
+    </instance>
+    <instance scriptid="val_52714_1126916_989">
+      <custrecord_scg_code_owner_struc>02</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Government</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>02 - Government</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52712_1126916_478]</parent>
+    </instance>
+    <instance scriptid="val_52715_1126916_587">
+      <custrecord_scg_code_owner_struc>03</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Corporation</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>03 - Corporation</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52712_1126916_478]</parent>
+    </instance>
+    <instance scriptid="val_52745_1126916_838">
+      <custrecord_scg_code_owner_struc>04</custrecord_scg_code_owner_struc>
+      <custrecord_scg_owner_desc>Institutional</custrecord_scg_owner_desc>
+      <isinactive>F</isinactive>
+      <name>04 - Institutional</name>
+      <parent>[scriptid=customrecord_cseg_scg_owner_stru.val_52712_1126916_478]</parent>
+    </instance>
+  </instances>
+  <links>
+    <link>
+      <linkcategory>BASICSETUPCOMPANY</linkcategory>
+      <linklabel></linklabel>
+      <linktasktype>LIST</linktasktype>
+    </link>
+  </links>
+</customrecordtype>

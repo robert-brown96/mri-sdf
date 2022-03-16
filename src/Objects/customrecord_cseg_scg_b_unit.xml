@@ -1,0 +1,297 @@
+<customrecordtype scriptid="customrecord_cseg_scg_b_unit">
+  <allowattachments>F</allowattachments>
+  <allowinlinedeleting>F</allowinlinedeleting>
+  <allowinlinedetaching>F</allowinlinedetaching>
+  <allowinlineediting>F</allowinlineediting>
+  <allowquickadd>F</allowquickadd>
+  <allowquicksearch>F</allowquicksearch>
+  <customsegment>[type=customsegment, scriptid=cseg_scg_b_unit]</customsegment>
+  <enabledle>F</enabledle>
+  <enablekeywords>F</enablekeywords>
+  <enablemailmerge>F</enablemailmerge>
+  <enableoptimisticlocking>F</enableoptimisticlocking>
+  <enablesystemnotes>T</enablesystemnotes>
+  <icon></icon>
+  <iconbuiltin>T</iconbuiltin>
+  <iconindex></iconindex>
+  <includeinsearchmenu>F</includeinsearchmenu>
+  <showcreationdate>F</showcreationdate>
+  <showcreationdateonlist>F</showcreationdateonlist>
+  <showlastmodified>F</showlastmodified>
+  <showlastmodifiedonlist>F</showlastmodifiedonlist>
+  <shownotes>T</shownotes>
+  <showowner>F</showowner>
+  <showownerallowchange>F</showownerallowchange>
+  <showowneronlist>F</showowneronlist>
+  <customrecordcustomfields>
+    <customrecordcustomfield scriptid="custrecord_scg_code_bu">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Field Code ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+    <customrecordcustomfield scriptid="custrecord_scg_bu_desc">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Description</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+  </customrecordcustomfields>
+  <instances>
+    <instance scriptid="val_26638_1126916_536">
+      <custrecord_scg_bu_desc>MRI</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>001</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>001 - MRI</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26639_1126916_921">
+      <custrecord_scg_bu_desc>Cougar Canada</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>002</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>002 - Cougar Canada</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26640_1126916_538">
+      <custrecord_scg_bu_desc>RAM</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>003</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>003 - RAM</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26641_1126916_590">
+      <custrecord_scg_bu_desc>Qube</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>004</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>004 - Qube</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26642_1126916_292">
+      <custrecord_scg_bu_desc>Tenmast</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>005</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>005 - Tenmast</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26643_1126916_462">
+      <custrecord_scg_bu_desc>MDA</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>006</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>006 - MDA</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26644_1126916_355">
+      <custrecord_scg_bu_desc>CML</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>007</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>007 - CML</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26645_1126916_996">
+      <custrecord_scg_bu_desc>Thesaurus</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>008</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>008 - Thesaurus</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26646_1126916_611">
+      <custrecord_scg_bu_desc>Cyclops</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>009</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>009 - Cyclops</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26647_1126916_671">
+      <custrecord_scg_bu_desc>RHR</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>010</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>010 - RHR</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26648_1126916_135">
+      <custrecord_scg_bu_desc>Link</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>011</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>011 - Link</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26649_1126916_874">
+      <custrecord_scg_bu_desc>Rockend</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>012</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>012 - Rockend</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26650_1126916_471">
+      <custrecord_scg_bu_desc>Leverton</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>013</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>013 - Leverton</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26651_1126916_848">
+      <custrecord_scg_bu_desc>Orchard</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>014</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>014 - Orchard</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26652_1126916_203">
+      <custrecord_scg_bu_desc>Castleton</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>015</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>015 - Castleton</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26653_1126916_484">
+      <custrecord_scg_bu_desc>HousingPartners</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>016</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>016 - HousingPartners</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26654_1126916_229">
+      <custrecord_scg_bu_desc>General</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>999</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>999 - General</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_26655_1126916_428">
+      <custrecord_scg_bu_desc>MacMunnis</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>017</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>017 - MacMunnis</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_33870_1126916_774">
+      <custrecord_scg_bu_desc>Palace</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>019</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>019 - Palace</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_33871_1126916_281">
+      <custrecord_scg_bu_desc>WOL</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>018</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>018 - WOL</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_49273_1126916_271">
+      <custrecord_scg_bu_desc>Manhattan</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>020</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>020 - Manhattan</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_49274_1126916_121">
+      <custrecord_scg_bu_desc>FSI</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>021</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>021 - FSI</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_49275_1126916_907">
+      <custrecord_scg_bu_desc>Box and Dice</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>022</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>022 - Box and Dice</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_49276_1126916_358">
+      <custrecord_scg_bu_desc>eSight</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>023</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>023 - eSight</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_1249440_1126916_371">
+      <custrecord_scg_bu_desc>LeaseEagle</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>024</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>024 - LeaseEagle</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_1249442_1126916_818">
+      <custrecord_scg_bu_desc>Angus</custrecord_scg_bu_desc>
+      <custrecord_scg_code_bu>025</custrecord_scg_code_bu>
+      <isinactive>F</isinactive>
+      <name>025 - Angus</name>
+      <parent></parent>
+    </instance>
+  </instances>
+  <links>
+    <link>
+      <linkcategory>BASICSETUPCOMPANY</linkcategory>
+      <linklabel></linklabel>
+      <linktasktype>LIST</linktasktype>
+    </link>
+  </links>
+</customrecordtype>

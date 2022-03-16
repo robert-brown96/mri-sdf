@@ -1,0 +1,178 @@
+<customrecordtype scriptid="customrecord_cseg_scg_client_typ">
+  <allowattachments>F</allowattachments>
+  <allowinlinedeleting>F</allowinlinedeleting>
+  <allowinlinedetaching>F</allowinlinedetaching>
+  <allowinlineediting>F</allowinlineediting>
+  <allowquickadd>F</allowquickadd>
+  <allowquicksearch>F</allowquicksearch>
+  <customsegment>[type=customsegment, scriptid=cseg_scg_client_typ]</customsegment>
+  <enabledle>F</enabledle>
+  <enablekeywords>F</enablekeywords>
+  <enablemailmerge>F</enablemailmerge>
+  <enableoptimisticlocking>F</enableoptimisticlocking>
+  <enablesystemnotes>T</enablesystemnotes>
+  <icon></icon>
+  <iconbuiltin>T</iconbuiltin>
+  <iconindex></iconindex>
+  <includeinsearchmenu>F</includeinsearchmenu>
+  <showcreationdate>F</showcreationdate>
+  <showcreationdateonlist>F</showcreationdateonlist>
+  <showlastmodified>F</showlastmodified>
+  <showlastmodifiedonlist>F</showlastmodifiedonlist>
+  <shownotes>T</shownotes>
+  <showowner>F</showowner>
+  <showownerallowchange>F</showownerallowchange>
+  <showowneronlist>F</showowneronlist>
+  <customrecordcustomfields>
+    <customrecordcustomfield scriptid="custrecord_scg_code_ctype">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Field Code ID</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+    <customrecordcustomfield scriptid="custrecord_scg_ctype_desc">
+      <accesslevel>2</accesslevel>
+      <allowquickadd>F</allowquickadd>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <encryptatrest>F</encryptatrest>
+      <fieldtype>TEXT</fieldtype>
+      <globalsearch>F</globalsearch>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <isparent>F</isparent>
+      <label>Description</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <parentsubtab></parentsubtab>
+      <rolerestrict>F</rolerestrict>
+      <searchcomparefield></searchcomparefield>
+      <searchdefault></searchdefault>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype></selectrecordtype>
+      <showinlist>F</showinlist>
+      <sourcefilterby></sourcefilterby>
+      <sourcefrom></sourcefrom>
+      <sourcelist></sourcelist>
+      <storevalue>T</storevalue>
+      <subtab></subtab>
+    </customrecordcustomfield>
+  </customrecordcustomfields>
+  <instances>
+    <instance scriptid="val_52695_1126916_924">
+      <custrecord_scg_code_ctype>01</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Developer</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>001 - Developer</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52696_1126916_826">
+      <custrecord_scg_code_ctype>02</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Owner/GP</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>002 - Owner/GP</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52697_1126916_660">
+      <custrecord_scg_code_ctype>03</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Owner/Operator</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>003 - Owner/Operator</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52698_1126916_209">
+      <custrecord_scg_code_ctype>04</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Fee Manager</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>004 - Fee Manager</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52699_1126916_435">
+      <custrecord_scg_code_ctype>05</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Institution/Investor</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>005 - Institution/Investor</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52700_1126916_745">
+      <custrecord_scg_code_ctype>06</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Fund Manager</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>006 - Fund Manager</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52701_1126916_625">
+      <custrecord_scg_code_ctype>07</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Broker</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>007 - Broker</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52702_1126916_812">
+      <custrecord_scg_code_ctype>08</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Occupier</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>008 - Occupier</name>
+      <parent></parent>
+    </instance>
+    <instance scriptid="val_52703_1126916_910">
+      <custrecord_scg_code_ctype>999</custrecord_scg_code_ctype>
+      <custrecord_scg_ctype_desc>Default</custrecord_scg_ctype_desc>
+      <isinactive>F</isinactive>
+      <name>999 - Default</name>
+      <parent></parent>
+    </instance>
+  </instances>
+  <links>
+    <link>
+      <linkcategory>BASICSETUPCOMPANY</linkcategory>
+      <linklabel></linklabel>
+      <linktasktype>LIST</linktasktype>
+    </link>
+  </links>
+</customrecordtype>

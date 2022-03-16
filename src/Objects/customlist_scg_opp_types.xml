@@ -1,0 +1,44 @@
+<customlist scriptid="customlist_scg_opp_types">
+  <description></description>
+  <isinactive>F</isinactive>
+  <isordered>T</isordered>
+  <name>Opportunity Type</name>
+  <customvalues>
+    <customvalue scriptid="val_339844_1126916_sb1_140">
+      <isinactive>F</isinactive>
+      <value>New</value>
+    </customvalue>
+    <customvalue scriptid="val_339845_1126916_sb1_547">
+      <isinactive>F</isinactive>
+      <value>Expansion</value>
+    </customvalue>
+    <customvalue scriptid="val_339846_1126916_sb1_791">
+      <isinactive>F</isinactive>
+      <value>Product Add</value>
+    </customvalue>
+    <customvalue scriptid="val_339847_1126916_sb1_607">
+      <isinactive>F</isinactive>
+      <value>Reduction</value>
+    </customvalue>
+    <customvalue scriptid="val_339849_1126916_sb1_459">
+      <isinactive>F</isinactive>
+      <value>Product Decommission</value>
+    </customvalue>
+    <customvalue scriptid="val_339850_1126916_sb1_457">
+      <isinactive>F</isinactive>
+      <value>Renewal</value>
+    </customvalue>
+    <customvalue scriptid="val_339851_1126916_sb1_347">
+      <isinactive>F</isinactive>
+      <value>Term Extension</value>
+    </customvalue>
+    <customvalue scriptid="val_339852_1126916_sb1_930">
+      <isinactive>F</isinactive>
+      <value>SAAS Conversion</value>
+    </customvalue>
+    <customvalue scriptid="val_364595_1126916_sb1_198">
+      <isinactive>F</isinactive>
+      <value>Uplift</value>
+    </customvalue>
+  </customvalues>
+</customlist>

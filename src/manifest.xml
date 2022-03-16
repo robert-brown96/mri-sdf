@@ -1,0 +1,60 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>mri</projectname>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="false">MULTILANGUAGE</feature>
+      <feature required="false">EXTREMELIST</feature>
+      <feature required="false">MAILMERGE</feature>
+      <feature required="true">CUSTOMRECORDS</feature>
+      <feature required="false">CREATESUITEBUNDLES</feature>
+      <feature required="true">EXPENSEALLOCATION</feature>
+      <feature required="true">LOCATIONS</feature>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="true">ADVANCEDREVENUERECOGNITION</feature>
+      <feature required="true">ACCOUNTING</feature>
+      <feature required="true">EXPREPORTS</feature>
+      <feature required="true">CUSTOMSEGMENTS</feature>
+      <feature required="true">CRM</feature>
+      <feature required="true">JOBS</feature>
+      <feature required="true">RECEIVABLES</feature>
+    </features>
+    <objects>
+      <object>customrecordzab_revenue_event</object>
+      <object>customrecordzab_revenue_detail.custrecordzab_rd_location</object>
+      <object>customrole_scg_workato_user</object>
+      <object>customrole_scg_bill_team_lead_2</object>
+      <object>customrole1047</object>
+      <object>customrole1068</object>
+      <object>customrecordzab_plan_item</object>
+      <object>customrecordzab_charge</object>
+      <object>customrole1029</object>
+      <object>customrole1007</object>
+      <object>customrecordzab_revenue.custrecordzab_r_location</object>
+      <object>customrecordzab_revenue_detail</object>
+      <object>customrole1040</object>
+      <object>customrole_vena_integrations</object>
+      <object>customrecordzab_subscription.custrecordzab_s_location</object>
+      <object>customrecordzab_revenue</object>
+      <object>customrole1067</object>
+      <object>customrecordzab_plan_item.custrecordzab_pi_location</object>
+      <object>customrole1065</object>
+      <object>customrole1043</object>
+      <object>customrole_scg_bill_team_mgr</object>
+      <object>customrecordzab_revenue_event.custrecordzab_rvn_location</object>
+      <object>customrecordzab_subscription</object>
+      <object>customrecordzab_subscription_item</object>
+      <object>customrecordzab_subscription_item.custrecordzab_si_location</object>
+      <object>customrole_scg_mri_bill_special</object>
+      <object>customrole1038</object>
+      <object>customrole1016</object>
+      <object>customrole1057</object>
+      <object>customrole1035</object>
+      <object>customrole1018</object>
+      <object>custentity_mri_ar_rep</object>
+      <object>customrole1033</object>
+      <object>customrole1032</object>
+      <object>customrecordzab_charge.custrecordzab_c_location</object>
+    </objects>
+  </dependencies>
+</manifest>
