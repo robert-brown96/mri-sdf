@@ -1,0 +1,25 @@
+<workflowactionscript scriptid="customscript_scg_scredit_zab">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>SCG | Credit Rebill SI Button</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <returnrecordtype></returnrecordtype>
+  <returntype></returntype>
+  <scriptfile>[/SuiteScripts/scg_wfa_credit.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_scg_credit_rebill">
+      <allemployees>F</allemployees>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <recordtype>RECORD</recordtype>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>RELEASED</status>
+    </scriptdeployment>
+  </scriptdeployments>
+</workflowactionscript>

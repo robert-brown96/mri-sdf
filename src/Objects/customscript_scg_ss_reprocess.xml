@@ -1,0 +1,54 @@
+<scheduledscript scriptid="customscript_scg_ss_reprocess">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>SCG | SS | Reprocess Uplifts</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/scg_reprocess_uplifts.js]</scriptfile>
+  <scriptcustomfields>
+    <scriptcustomfield scriptid="custscript_scg_input_rec">
+      <accesslevel>2</accesslevel>
+      <applyformatting>F</applyformatting>
+      <checkspelling>F</checkspelling>
+      <defaultchecked>F</defaultchecked>
+      <defaultselection></defaultselection>
+      <defaultvalue></defaultvalue>
+      <description></description>
+      <displayheight></displayheight>
+      <displaytype>NORMAL</displaytype>
+      <displaywidth></displaywidth>
+      <dynamicdefault></dynamicdefault>
+      <fieldtype>SELECT</fieldtype>
+      <help></help>
+      <isformula>F</isformula>
+      <ismandatory>F</ismandatory>
+      <label>Input</label>
+      <linktext></linktext>
+      <maxlength></maxlength>
+      <maxvalue></maxvalue>
+      <minvalue></minvalue>
+      <onparentdelete></onparentdelete>
+      <searchlevel>2</searchlevel>
+      <selectrecordtype>[scriptid=customrecord_scg_renewal_process]</selectrecordtype>
+      <setting></setting>
+      <storevalue>F</storevalue>
+    </scriptcustomfield>
+  </scriptcustomfields>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_scg_repro">
+      <custscript_scg_input_rec></custscript_scg_input_rec>
+      <isdeployed>T</isdeployed>
+      <loglevel>DEBUG</loglevel>
+      <status>NOTSCHEDULED</status>
+      <title>SCG | SS | Reprocess Uplifts</title>
+      <recurrence>
+        <single>
+          <repeat></repeat>
+          <startdate>2022-01-27</startdate>
+          <starttime>23:00:00Z</starttime>
+        </single>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</scheduledscript>

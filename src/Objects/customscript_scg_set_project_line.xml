@@ -1,0 +1,30 @@
+<mapreducescript scriptid="customscript_scg_set_project_line">
+  <description></description>
+  <isinactive>F</isinactive>
+  <name>SCG| MR | Set Project on Line</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <scriptfile>[/SuiteScripts/scg_set_proj_lines.js]</scriptfile>
+  <scriptdeployments>
+    <scriptdeployment scriptid="customdeploy_scg_set_project">
+      <buffersize>1</buffersize>
+      <concurrencylimit>3</concurrencylimit>
+      <isdeployed>T</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <queueallstagesatonce>T</queueallstagesatonce>
+      <runasrole>ADMINISTRATOR</runasrole>
+      <status>SCHEDULED</status>
+      <title>SCG| MR | Set Project on Line</title>
+      <yieldaftermins>60</yieldaftermins>
+      <recurrence>
+        <daily>
+          <everyxdays>1</everyxdays>
+          <repeat>PT30M</repeat>
+          <startdate>2021-08-19</startdate>
+          <starttime>05:30:00Z</starttime>
+        </daily>
+      </recurrence>
+    </scriptdeployment>
+  </scriptdeployments>
+</mapreducescript>

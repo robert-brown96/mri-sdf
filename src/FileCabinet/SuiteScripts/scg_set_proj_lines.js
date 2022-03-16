@@ -27,6 +27,7 @@ define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
             return search.load({
                 id: "customsearch_scg_charge_proj"
             });
+            // test comment
         } catch (e) {
             log.error({
                 title: "Error in get input",
@@ -175,7 +176,7 @@ define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
      * @param {Object} summary.inputSummary - Statistics about the input stage
      * @param {Object} summary.mapSummary - Statistics about the map stage
      * @param {Object} summary.reduceSummary - Statistics about the reduce stage
-     * @since 2015.2scg_set_proj_lines.js
+     * @since 2015.2
      */
     const summarize = summary => {
         // For each error thrown during the map stage, log the error, the corresponding key,

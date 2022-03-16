@@ -151,12 +151,6 @@ define([
                         "CASE WHEN {custrecordzab_cd_item.custitem_scg_is_uplift} = 'T' THEN {custrecordzab_cd_subscription.custrecord_scg_uplift_p} ELSE 0 END"
                 }),
                 search.createColumn({
-                    name: "custrecord_scg_to_record_bg"
-                }),
-                search.createColumn({
-                    name: "custrecord_scg_from_record_bg"
-                }),
-                search.createColumn({
                     name: "custrecord_scg_source_recs"
                 }),
                 search.createColumn({
@@ -170,6 +164,36 @@ define([
             const redoSubscriptions = scrip.getParameter({
                 name: "custscript_scg_reprocess_subscriptions"
             });
+            const singleOverride = scrip.getParameter({
+                name: "custscript_scg_sub_param"
+            });
+            if (singleOverride) {
+                log.debug({
+                    title: "single override",
+                    details: singleOverride
+                });
+                return search.create({
+                    type: "customrecordzab_count_data",
+                    columns: seaColumns,
+                    filters: [
+                        [
+                            "custrecordzab_cd_subscription",
+                            "anyof",
+                            singleOverride
+                        ],
+                        "AND",
+                        [
+                            "custrecordzab_cd_item.custitem_scg_is_renewable",
+                            "is",
+                            "T"
+                        ],
+                        "AND",
+                        ["custrecord_scg_sf_asset", "isnotempty", ""],
+                        "AND",
+                        ["custrecord_scg_transformed_to", "anyof", "@NONE@"]
+                    ]
+                });
+            }
 
             //non standard jobs
             if (redoSubscriptions) {
@@ -177,56 +201,56 @@ define([
                     title: "OVERRIDE",
                     details: redoSubscriptions
                 });
-                const subIds = JSON.parse(redoSubscriptions);
-                let oldCdQuery = query.create({
-                    type: "customrecordzab_count_data"
-                });
-                let assetCondition = oldCdQuery.createCondition({
-                    fieldId: "custrecord_scg_sf_asset",
-                    operator: query.Operator.EMPTY_NOT
-                });
-                let subCondition = oldCdQuery.createCondition({
-                    fieldId: "custrecordzab_cd_subscription",
-                    operator: query.Operator.ANY_OF,
-                    values: subIds
-                });
-                let toRecConditino = oldCdQuery.createCondition({
-                    fieldId: "custrecord_scg_transformed_to",
-                    operator: query.Operator.EMPTY_NOT
-                });
-                let itemJoin = oldCdQuery.joinTo({
-                    fieldId: "custrecordzab_cd_item",
-                    target: query.Type.ITEM
-                });
-                let renewCondition = itemJoin.createCondition({
-                    fieldId: "custitem_scg_is_renewable",
-                    operator: query.Operator.IS,
-                    values: true
-                });
-                oldCdQuery.condition = oldCdQuery.and(
-                    assetCondition,
-                    subCondition,
-                    toRecConditino,
-                    renewCondition
-                );
-                oldCdQuery.columns = [
-                    oldCdQuery.createColumn({
-                        fieldId: "custrecord_scg_transformed_to",
-                        alias: "source_recs"
-                    })
-                ];
+                // const subIds = JSON.parse(redoSubscriptions);
+                // let oldCdQuery = query.create({
+                //     type: "customrecordzab_count_data"
+                // });
+                // let assetCondition = oldCdQuery.createCondition({
+                //     fieldId: "custrecord_scg_sf_asset",
+                //     operator: query.Operator.EMPTY_NOT
+                // });
+                // let subCondition = oldCdQuery.createCondition({
+                //     fieldId: "custrecordzab_cd_subscription",
+                //     operator: query.Operator.ANY_OF,
+                //     values: subIds
+                // });
+                // let toRecConditino = oldCdQuery.createCondition({
+                //     fieldId: "custrecord_scg_transformed_to",
+                //     operator: query.Operator.EMPTY
+                // });
+                // let itemJoin = oldCdQuery.joinTo({
+                //     fieldId: "custrecordzab_cd_item",
+                //     target: query.Type.ITEM
+                // });
+                // let renewCondition = itemJoin.createCondition({
+                //     fieldId: "custitem_scg_is_renewable",
+                //     operator: query.Operator.IS,
+                //     values: true
+                // });
+                // oldCdQuery.condition = oldCdQuery.and(
+                //     assetCondition,
+                //     subCondition,
+                //     toRecConditino,
+                //     renewCondition
+                // );
+                // oldCdQuery.columns = [
+                //     oldCdQuery.createColumn({
+                //         fieldId: "custrecord_scg_source_recs",
+                //         alias: "source_recs"
+                //     })
+                // ];
 
-                let oldCdCollection = oldCdQuery.run().asMappedResults();
-                let oldCdIds = oldCdCollection.map(o => {
-                    return o.source_recs;
-                });
+                // let oldCdCollection = oldCdQuery.run().asMappedResults();
+                // log.debug(oldCdCollection);
+                // // let oldCdIds = oldCdCollection.map(o => {
+                // //     return o.source_recs;
+                // // });
+                let oldCdIds = JSON.parse(redoSubscriptions).map(i =>
+                    Number(i)
+                );
+
                 log.debug({
                     title: "oldcds",
-                    details: oldCdIds
-                });
-
-                log.debug({
-                    title: "EXP",
                     details: oldCdIds
                 });
 
@@ -234,21 +258,21 @@ define([
                     type: "customrecordzab_count_data",
                     columns: seaColumns,
                     filters: [
-                        [
-                            "custrecord_scg_sf_asset",
-                            search.Operator.ISNOTEMPTY,
-                            ""
-                        ],
-                        [
-                            "custrecordzab_cd_item.custitem_scg_is_renewable",
-                            search.Operator.IS,
-                            true
-                        ],
-                        [
-                            "custrecord_scg_source_recs",
-                            search.Operator.ANYOF,
-                            oldCdIds
-                        ]
+                        search.createFilter({
+                            name: "custrecord_scg_sf_asset",
+                            operator: search.Operator.ISNOTEMPTY
+                        }),
+                        search.createFilter({
+                            name: "custitem_scg_is_renewable",
+                            join: "custrecordzab_cd_item",
+                            operator: search.Operator.IS,
+                            values: true
+                        }),
+                        search.createFilter({
+                            name: "internalid",
+                            operator: search.Operator.ANYOF,
+                            values: oldCdIds
+                        })
                     ]
                 });
             }
@@ -312,17 +336,15 @@ define([
             newCd.rate1 = mapData.custrecord_scg_cd_rate1;
             newCd.rate2 = mapData.custrecord_scg_cd_rate2;
             newCd.rate3 = mapData.custrecord_scg_cd_rate3;
-            newCd.from_rec = mapData.custrecord_scg_from_record_bg;
-            newCd.to_rec = mapData.custrecord_scg_to_record_bg;
             newCd.transformed_to_rec = mapData.custrecord_scg_transformed_to
                 ? mapData.custrecord_scg_transformed_to.value
                 : null;
             newCd.source_recs = mapData.custrecord_scg_source_recs;
-            if (newCd.transformed_to_rec && newCd.transformed_to_rec !== "")
-                record.delete({
-                    type: CONSTANTS.RECORD_TYPE.ZAB_COUNT.ID,
-                    id: newCd.transformed_to_rec
-                });
+            // if (newCd.transformed_to_rec && newCd.transformed_to_rec !== "")
+            //     record.delete({
+            //         type: CONSTANTS.RECORD_TYPE.ZAB_COUNT.ID,
+            //         id: newCd.transformed_to_rec
+            //     });
             //get subscription uplift percent
             newCd.uplift = mapData.formulapercent;
             //lookup fields from subscription
@@ -336,10 +358,10 @@ define([
                     "custrecord_scg_last_change_rate"
                 ]
             });
-            log.debug({
-                title: "Sub Fields",
-                details: subFields
-            });
+            // log.debug({
+            //     title: "Sub Fields",
+            //     details: subFields
+            // });
             newCd.charge_schedule =
                 subFields.custrecordzab_s_charge_schedule[0].value;
             newCd.next_anniversary =
@@ -382,7 +404,9 @@ define([
             title: "START REDUCE",
             details: context
         });
-        let copiedRecs = [];
+        // initialize the new record
+        let newCd;
+        let resultId;
         let subFields = {};
         const COUNT = CONSTANTS.RECORD_TYPE.ZAB_COUNT;
         //check if restarted
@@ -394,10 +418,6 @@ define([
                 details: context.key
             });
         }
-        log.debug({
-            title: "Number of CDs to Process",
-            details: context.values.length
-        });
 
         //parse all context values into an array of objects
         //filter out any already processed values
@@ -420,14 +440,15 @@ define([
                     check["custrecord_scg_last_process_date"]
                 );
                 lastProcessed = lastProcessed.toDateString();
-                if (today === lastProcessed) {
-                } else {
+                if (today !== lastProcessed) {
                     countDataRecs.push(countRec);
                 }
             } else {
                 countDataRecs.push(JSON.parse(o));
             }
         });
+        // array for record IDs that are being transformed
+        let transformedRecIds = countDataRecs.map(c => c.id);
 
         log.debug({
             title: "Asset: " + context.key,
@@ -435,21 +456,15 @@ define([
         });
         let oldCd;
         let sortedCds;
-        let oldIds;
-        if (countDataRecs.length === 0) {
+        if (countDataRecs.length === 1) {
             oldCd = countDataRecs[0];
-            oldIds = [oldCd.id];
         } else {
             //sort count records by start date
             sortedCds = _.sortBy(countDataRecs, ["start_date"], ["asc"]);
             oldCd = sortedCds[0];
-            oldIds = sortedCds.map(x => x.id);
         }
 
-        let newCd;
-
-        copiedRecs.push(oldCd.id);
-        log.debug(oldCd);
+        // copy source record
         newCd = record.copy({
             type: COUNT.ID,
             id: oldCd.id,
@@ -459,25 +474,21 @@ define([
             fieldId: COUNT.Field.PARENT_COUNT,
             value: oldCd.id
         });
-        newCd.setValue({
-            fieldId: "custrecord_scg_from_record_bg",
-            value: oldIds
-        });
+        // multi select field
         newCd.setValue({
             fieldId: "custrecord_scg_source_recs",
-            value: oldIds
+            value: transformedRecIds
         });
 
         subFields["custrecord_scg_next_anniversary"] = oldCd.next_anniversary;
-        let newCdId;
         newCd = CONSTANTS.setCoreCountFields(oldCd, newCd, subFields);
         if (countDataRecs.length === 1) {
             //get uplift percent from original aat
             let upliftPercent = parseFloat(oldCd.uplift);
-            log.debug({
-                title: "Uplift",
-                details: upliftPercent
-            });
+            // log.debug({
+            //     title: "Uplift",
+            //     details: upliftPercent
+            // });
 
             //compare next uplift date to today
             let compare = moment(oldCd.next_anniversary);
@@ -487,7 +498,6 @@ define([
                 upliftPercent > 0 &&
                 compare.get("y") === nextUpliftDate.get("y")
             ) {
-                log.debug("Being Uplifted");
                 let newRate =
                     (upliftPercent / 100 + 1) * parseFloat(oldCd.rate);
                 newCd.setValue({
@@ -497,13 +507,12 @@ define([
             }
             //save new rec
             //set to record and last processed on old rec
-            newCdId = newCd.save();
+            resultId = newCd.save();
             record.submitFields({
                 type: COUNT.ID,
                 id: oldCd.id,
                 values: {
-                    custrecord_scg_to_record_bg: newCdId,
-                    custrecord_scg_transformed_to: newCdId,
+                    custrecord_scg_transformed_to: resultId,
                     custrecord_scg_last_process_date: new Date()
                 }
             });
@@ -641,12 +650,8 @@ define([
                 fieldId: COUNT.Field.RATE,
                 value: sumRate
             });
-            log.debug({
-                title: "New CD",
-                details: newCd
-            });
 
-            newCdId = newCd.save();
+            resultId = newCd.save();
             //assign TO record for all associated records
             _.forEach(sortedCds, cd => {
                 if (cd.id) {
@@ -654,8 +659,7 @@ define([
                         type: COUNT.ID,
                         id: cd.id,
                         values: {
-                            custrecord_scg_to_record_bg: newCdId,
-                            custrecord_scg_transformed_to: newCdId,
+                            custrecord_scg_transformed_to: resultId,
                             custrecord_scg_last_process_date: new Date()
                         }
                     });
@@ -674,28 +678,26 @@ define([
             details: nextAnn
         });
 
-        //Processing for Quarterly and biannual bills
-        log.debug({
-            title: "Charge Schedule",
-            details: countDataRecs[0].charge_schedule
-        });
-
-        let per_year_bills = search.lookupFields({
-            type: "customrecordzab_charge_schedules",
-            id: countDataRecs[0].charge_schedule,
-            columns: ["custrecord_scg_bill_frequency"]
-        });
-        per_year_bills = per_year_bills["custrecord_scg_bill_frequency"];
-
-        //process biannual charges
-        if (per_year_bills === 2) {
-            log.debug("Biannual Start");
-            CONSTANTS.createBiannualRecs([newCd]);
-        } else if (per_year_bills === 4) {
-            //process quarterly charges
-            log.debug("Quarterly Start");
-            CONSTANTS.createQuarterlyRecs([newCd]);
-        }
+        // //Processing for Quarterly and biannual bills
+        // log.debug({
+        //     title: "Charge Schedule",
+        //     details: countDataRecs[0].charge_schedule
+        // });
+        //
+        // let per_year_bills = search.lookupFields({
+        //     type: "customrecordzab_charge_schedules",
+        //     id: countDataRecs[0].charge_schedule,
+        //     columns: ["custrecord_scg_bill_frequency"]
+        // });
+        // per_year_bills = per_year_bills["custrecord_scg_bill_frequency"];
+        //
+        // //process biannual charges
+        // if (per_year_bills === 2) {
+        //     log.debug("Biannual Start");
+        // } else if (per_year_bills === 4) {
+        //     //process quarterly charges
+        //     log.debug("Quarterly Start");
+        // }
         log.debug({
             title: "Context to write",
             details: {
@@ -714,10 +716,13 @@ define([
                 nextAnn: nextAnn.toDateString(),
                 last_change: new Date(
                     subFields["custrecord_scg_next_anniversary"]
-                ).toDateString(),
-                last_processed: new Date()
+                ).toDateString()
             }),
-            value: newCdId
+            value: JSON.stringify({
+                newId: resultId,
+                oldId: transformedRecIds,
+                uplift: oldCd.uplift
+            })
         });
     };
 
@@ -734,86 +739,8 @@ define([
      *
      */
     const summarize = summary => {
-        log.debug({
-            title: "Summary",
-            details: summary.output
-        });
-
-        if (summary.isRestarted) {
-            log.audit("Summary Stage is being Restarted");
-        }
-
-        let subsToProcess = [];
-        let totalProcessed = 0;
-
-        //loop through subscriptions and set summary dates
-        summary.output.iterator().each(function (key, value) {
-            subsToProcess.push(key);
-
-            totalProcessed += parseFloat(value);
-
-            return true;
-        });
-        if (subsToProcess.length < 4500 && !summary.isRestarted) {
-            //set fields on subscription for summary processing
-            _.forEach(_.uniq(subsToProcess), subString => {
-                const fields = JSON.parse(subString);
-                log.debug(fields);
-                let subResults = record.submitFields({
-                    // 2 usage units
-                    type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
-                    id: fields.subscription,
-                    values: {
-                        custrecord_scg_next_anniversary: new Date(
-                            fields.nextAnn
-                        ),
-                        custrecord_scg_last_uplift_date: new Date(),
-                        custrecord_scg_last_change_rate: new Date(
-                            fields.last_change
-                        )
-                    }
-                });
-            });
-        } else {
-            const today = new Date().getUTCDate();
-            const splice = subsToProcess.filter(subString => {
-                const fields = JSON.parse(subString);
-                return new Date(fields.last_processed).getUTCDate() !== today;
-            });
-            log.debug({
-                title: "LARGE SUMMARY",
-                details: splice
-            });
-            _.forEach(_.uniq(splice), subString => {
-                const fields = JSON.parse(subString);
-                log.debug(fields);
-                let subResults = record.submitFields({
-                    // 2 usage units
-                    type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
-                    id: fields.subscription,
-                    values: {
-                        custrecord_scg_next_anniversary: new Date(
-                            fields.nextAnn
-                        ),
-                        custrecord_scg_last_uplift_date: new Date(),
-                        custrecord_scg_last_change_rate: new Date(
-                            fields.last_change
-                        )
-                    }
-                });
-            });
-        }
-
-        log.audit({
-            title: "Created " + totalProcessed + " Count records",
-            details:
-                "Time(in seconds): " +
-                summary.seconds +
-                " with " +
-                summary.yields +
-                " yields"
-        });
-
+        let mapErrors = [];
+        let reduceErrors = [];
         // For each error thrown during the map stage, log the error, the corresponding key,
         // and the execution number. The execution number indicates whether the error was
         // thrown during the the first attempt to process the key, or during a
@@ -830,6 +757,7 @@ define([
                         executionNo,
                     details: error
                 });
+                mapErrors.push({ asset: key, message: error, stage: "map" });
                 return true;
             });
 
@@ -849,14 +777,122 @@ define([
                         executionNo,
                     details: error
                 });
+                reduceErrors.push({
+                    asset: key,
+                    message: error,
+                    stage: "reduce"
+                });
                 return true;
             });
+        log.debug({ title: "MAP ERRORS", details: mapErrors });
+        log.debug({ title: "REDUCE ERRORS", details: reduceErrors });
+        if (summary.isRestarted) {
+            log.audit("Summary Stage is being Restarted");
+        }
+        let countRes = {};
+        let subsToProcess = [];
+        let totalProcessed = 0;
+        summary.output.iterator().each((key, value) => {
+            log.debug({ title: key, details: value });
+            totalProcessed += 1;
+            const fields = JSON.parse(key);
+            subsToProcess.push(fields);
+            if (countRes.hasOwnProperty(fields.subscription)) {
+                countRes[fields.subscription].push(JSON.parse(value));
+            } else {
+                countRes[fields.subscription] = [JSON.parse(value)];
+            }
+            return true;
+        });
+        log.debug({
+            title: "SUBS TO GO",
+            details: subsToProcess
+        });
+        log.debug({
+            title: "Countres",
+            details: countRes
+        });
+        let uniqSubs;
+        let uniqSubSet = new Set();
+        const filteredArr = subsToProcess.filter(obj => {
+            const isPresent = uniqSubSet.has(obj.subscription);
+
+            uniqSubSet.add(obj.subscription);
+
+            return !isPresent;
+        });
+
+        log.debug({
+            title: `SUBS: ${filteredArr.length}`,
+            details: filteredArr
+        });
+        //set fields on subscription for summary processing
+        _.forEach(filteredArr, subString => {
+            const fields = subString;
+
+            log.debug(fields, countRes[fields.subscription]);
+
+            const subId = fields.subscription;
+            const recs = countRes[subId];
+            let uplifts = _.uniq(
+                recs.map(x => {
+                    let temp = parseFloat(x.uplift);
+                    if (typeof temp === "number" && temp > 0) return temp;
+                })
+            );
+            log.debug(uplifts);
+            // const newRecs = recs.map(x => x.newId);
+            let processJob = record.create({
+                type: "customrecord_scg_renewal_process",
+                isDynamic: true
+            });
+            processJob.setValue({
+                fieldId: "custrecord_scg_res_json",
+                value: JSON.stringify(recs)
+            });
+            processJob.setValue({
+                fieldId: "custrecord_scg_pr_sub",
+                value: subId
+            });
+            processJob.setValue({
+                fieldId: "custrecord_scg_p_last_effective",
+                value: new Date(fields.last_change)
+            });
+
+            if (uplifts[0])
+                processJob.setValue({
+                    fieldId: "custrecord_scg_uplift_process",
+                    value: uplifts[0]
+                });
+            const pjId = processJob.save();
+            log.debug("JOB", pjId);
+            let subResults = record.submitFields({
+                type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
+                id: fields.subscription,
+                values: {
+                    custrecord_scg_last_uplift_date: new Date(),
+                    custrecord_scg_uplift_log: pjId,
+                    custrecord_scg_next_anniversary: new Date(fields.nextAnn)
+                }
+            });
+        });
+
+        log.audit({
+            title: "Created " + totalProcessed + " Count records",
+            details:
+                "Time(in seconds): " +
+                summary.seconds +
+                " with " +
+                summary.yields +
+                " yields"
+        });
     }; //end summary
 
     return {
         config: {
             exitOnError: false
         },
+
         getInputData: getInputData,
         map: map,
         reduce: reduce,

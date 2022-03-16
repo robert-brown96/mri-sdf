@@ -160,7 +160,9 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                 if (context.type === context.UserEventType.CREATE) {
                     let valObj = {};
                     valObj.cseg1 = setTransRegion(context);
-
+                    /*valObj.externalid = context.newRecord.getValue({
+                        fieldId: "tranid"
+                    });*/
                     //for Jan interim period only
                     //unmarks grouping checkbox
                     const markedForGrouping = context.newRecord.getValue({

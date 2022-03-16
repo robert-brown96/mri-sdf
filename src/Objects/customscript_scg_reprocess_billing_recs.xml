@@ -1,13 +1,13 @@
-<mapreducescript scriptid="customscript_scg_delete_search">
+<mapreducescript scriptid="customscript_scg_reprocess_billing_recs">
   <description></description>
   <isinactive>F</isinactive>
-  <name>SCG | MR | Delete Records</name>
+  <name>SCG | MR | Reprocess Billing Schedules</name>
   <notifyadmins>F</notifyadmins>
   <notifyemails></notifyemails>
   <notifyowner>T</notifyowner>
-  <scriptfile>[/SuiteScripts/scg_bulk_delete.js]</scriptfile>
+  <scriptfile>[/SuiteScripts/scg_mr_reprocess_bcr.js]</scriptfile>
   <scriptcustomfields>
-    <scriptcustomfield scriptid="custscriptscg_srch_del_id">
+    <scriptcustomfield scriptid="custscript_cd_search">
       <accesslevel>2</accesslevel>
       <applyformatting>F</applyformatting>
       <checkspelling>F</checkspelling>
@@ -19,57 +19,38 @@
       <displaytype>NORMAL</displaytype>
       <displaywidth></displaywidth>
       <dynamicdefault></dynamicdefault>
-      <fieldtype>TEXT</fieldtype>
+      <fieldtype>SELECT</fieldtype>
       <help></help>
       <isformula>F</isformula>
       <ismandatory>F</ismandatory>
-      <label>Search ID</label>
+      <label>Count Data Search</label>
       <linktext></linktext>
       <maxlength></maxlength>
       <maxvalue></maxvalue>
       <minvalue></minvalue>
-      <onparentdelete></onparentdelete>
+      <onparentdelete>NO_ACTION</onparentdelete>
       <searchlevel>2</searchlevel>
-      <selectrecordtype></selectrecordtype>
+      <selectrecordtype>-119</selectrecordtype>
       <setting></setting>
       <storevalue>T</storevalue>
     </scriptcustomfield>
   </scriptcustomfields>
   <scriptdeployments>
-    <scriptdeployment scriptid="customdeploy2">
+    <scriptdeployment scriptid="customdeploy_scg_reprocess1">
       <buffersize>1</buffersize>
-      <concurrencylimit>1</concurrencylimit>
-      <custscriptscg_srch_del_id>3201</custscriptscg_srch_del_id>
+      <concurrencylimit>3</concurrencylimit>
+      <custscript_cd_search>[scriptid=customsearch3187]</custscript_cd_search>
       <isdeployed>T</isdeployed>
       <loglevel>DEBUG</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>NOTSCHEDULED</status>
-      <title>SCG | MR | Delete Records Charge</title>
+      <title>SCG | MR | Reprocess Billing Schedules</title>
       <yieldaftermins>60</yieldaftermins>
       <recurrence>
         <single>
           <repeat></repeat>
-          <startdate>2022-03-09</startdate>
-          <starttime>23:00:00Z</starttime>
-        </single>
-      </recurrence>
-    </scriptdeployment>
-    <scriptdeployment scriptid="customdeploy1">
-      <buffersize>1</buffersize>
-      <concurrencylimit>5</concurrencylimit>
-      <custscriptscg_srch_del_id>3207</custscriptscg_srch_del_id>
-      <isdeployed>T</isdeployed>
-      <loglevel>ERROR</loglevel>
-      <queueallstagesatonce>T</queueallstagesatonce>
-      <runasrole>ADMINISTRATOR</runasrole>
-      <status>NOTSCHEDULED</status>
-      <title>SCG | MR | Delete Records</title>
-      <yieldaftermins>60</yieldaftermins>
-      <recurrence>
-        <single>
-          <repeat></repeat>
-          <startdate>2022-01-02</startdate>
+          <startdate>2021-06-07</startdate>
           <starttime>23:00:00Z</starttime>
         </single>
       </recurrence>
