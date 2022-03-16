@@ -1,0 +1,31 @@
+{
+  "name": "mri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "suitecloud.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robert-brown96/mri-sdf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robert-brown96/mri-sdf/issues"
+  },
+  "homepage": "https://github.com/robert-brown96/mri-sdf#readme",
+  "prettier": {
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "semi": true,
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "arrowParens": "avoid"
+  },
+  "dependencies": {
+    "prettier": "^2.6.0"
+  }
+}
