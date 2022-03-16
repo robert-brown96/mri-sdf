@@ -20,7 +20,9 @@
       <feature required="true">RECEIVABLES</feature>
     </features>
     <objects>
+      <object>customrole_scg_bill_team_lead</object>
       <object>customrecordzab_revenue_event</object>
+      <object>customrecordzab_count_data.tab_305_1126916_sb1_870</object>
       <object>customrecordzab_revenue_detail.custrecordzab_rd_location</object>
       <object>customrole_scg_workato_user</object>
       <object>customrole_scg_bill_team_lead_2</object>
@@ -45,6 +47,7 @@
       <object>customrecordzab_subscription</object>
       <object>customrecordzab_subscription_item</object>
       <object>customrecordzab_subscription_item.custrecordzab_si_location</object>
+      <object>customrecordzab_count_data</object>
       <object>customrole_scg_mri_bill_special</object>
       <object>customrole1038</object>
       <object>customrole1016</object>
