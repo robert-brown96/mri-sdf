@@ -272,20 +272,6 @@
       <name>023 - eSight</name>
       <parent></parent>
     </instance>
-    <instance scriptid="val_1249440_1126916_371">
-      <custrecord_scg_bu_desc>LeaseEagle</custrecord_scg_bu_desc>
-      <custrecord_scg_code_bu>024</custrecord_scg_code_bu>
-      <isinactive>F</isinactive>
-      <name>024 - LeaseEagle</name>
-      <parent></parent>
-    </instance>
-    <instance scriptid="val_1249442_1126916_818">
-      <custrecord_scg_bu_desc>Angus</custrecord_scg_bu_desc>
-      <custrecord_scg_code_bu>025</custrecord_scg_code_bu>
-      <isinactive>F</isinactive>
-      <name>025 - Angus</name>
-      <parent></parent>
-    </instance>
   </instances>
   <links>
     <link>

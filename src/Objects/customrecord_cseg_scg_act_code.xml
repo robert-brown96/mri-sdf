@@ -552,34 +552,6 @@
       <name>227 - Angus</name>
       <parent>[scriptid=customrecord_cseg_scg_act_code.val_50911_1126916_147]</parent>
     </instance>
-    <instance scriptid="val_1249455_1126916_198">
-      <custrecord_scg_act_desc>PE Group Related</custrecord_scg_act_desc>
-      <custrecord_scg_code_act>606</custrecord_scg_code_act>
-      <isinactive>F</isinactive>
-      <name>606 - PE Group Related</name>
-      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
-    </instance>
-    <instance scriptid="val_1249456_1126916_975">
-      <custrecord_scg_act_desc>Debt Financing Related</custrecord_scg_act_desc>
-      <custrecord_scg_code_act>607</custrecord_scg_code_act>
-      <isinactive>F</isinactive>
-      <name>607 - Debt Financing Related</name>
-      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
-    </instance>
-    <instance scriptid="val_1249459_1126916_601">
-      <custrecord_scg_act_desc>Redundant Vendor Cost</custrecord_scg_act_desc>
-      <custrecord_scg_code_act>608</custrecord_scg_code_act>
-      <isinactive>F</isinactive>
-      <name>608 - Redundant Vendor Cost</name>
-      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
-    </instance>
-    <instance scriptid="val_1249463_1126916_797">
-      <custrecord_scg_act_desc>Payroll BTL</custrecord_scg_act_desc>
-      <custrecord_scg_code_act>609</custrecord_scg_code_act>
-      <isinactive>F</isinactive>
-      <name>609 - Payroll BTL</name>
-      <parent>[scriptid=customrecord_cseg_scg_act_code.val_50938_1126916_305]</parent>
-    </instance>
   </instances>
   <links>
     <link>

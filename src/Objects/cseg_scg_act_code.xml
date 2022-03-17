@@ -18,11 +18,11 @@
     <transactionline>
       <applications>
         <application>
-          <id>EXPENSE</id>
+          <id>PURCHASE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
-          <id>PURCHASE</id>
+          <id>EXPENSE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
@@ -62,12 +62,6 @@
     </customrecords>
   </segmentapplication>
   <permissions>
-    <permission>
-      <recordaccesslevel>EDIT</recordaccesslevel>
-      <role>[scriptid=customrole1067]</role>
-      <searchaccesslevel>EDIT</searchaccesslevel>
-      <valuemgmtaccesslevel>EDIT</valuemgmtaccesslevel>
-    </permission>
     <permission>
       <recordaccesslevel></recordaccesslevel>
       <role>[scriptid=customrole1007]</role>
@@ -148,19 +142,7 @@
     </permission>
     <permission>
       <recordaccesslevel></recordaccesslevel>
-      <role>[scriptid=customrole1068]</role>
-      <searchaccesslevel></searchaccesslevel>
-      <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
-    </permission>
-    <permission>
-      <recordaccesslevel></recordaccesslevel>
       <role>[scriptid=customrole1047]</role>
-      <searchaccesslevel></searchaccesslevel>
-      <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
-    </permission>
-    <permission>
-      <recordaccesslevel></recordaccesslevel>
-      <role>[scriptid=customrole1016]</role>
       <searchaccesslevel></searchaccesslevel>
       <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
     </permission>

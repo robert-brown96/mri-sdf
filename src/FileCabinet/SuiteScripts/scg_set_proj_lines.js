@@ -3,12 +3,7 @@
  * @NScriptType MapReduceScript
  * @author Bobby Brown
  */
-define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
-    record,
-    search,
-    transaction,
-    _
-) => {
+define(["N/record", "N/search", "./Lib/lodash.min"], (record, search, _) => {
     /**
      * Defines the function that is executed at the beginning of the map/reduce process and generates the input data.
      * @param {Object} inputContext
@@ -21,13 +16,41 @@ define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
      * @returns {Array|Object|Search|ObjectRef|File|Query} The input data to use in the map/reduce process
      * @since 2015.2
      */
-
     const getInputData = inputContext => {
         try {
-            return search.load({
-                id: "customsearch_scg_charge_proj"
+            // return search.load({
+            //     id: "customsearch_scg_charge_proj"
+            // });
+
+            return search.create({
+                type: "customrecordzab_charge",
+                filters: [
+                    ["custrecordzab_c_status", "anyof", "4"],
+                    "AND",
+                    [
+                        "custrecordzab_c_subscription_item.custrecordmri_si_sf_project_id",
+                        "isnotempty",
+                        ""
+                    ],
+                    "AND",
+                    ["custrecordzab_c_charge_item.type", "anyof", "Service"],
+                    "AND",
+                    [
+                        "custrecordzab_c_subscription_item.custrecord_scg_proj_on_tran",
+                        "is",
+                        "F"
+                    ]
+                ],
+                columns: [
+                    "custrecordzab_c_transaction",
+                    "custrecordzab_c_transaction_line_id",
+                    search.createColumn({
+                        name: "custrecordzab_si_ns_proj",
+                        join: "CUSTRECORDZAB_C_SUBSCRIPTION_ITEM"
+                    }),
+                    "custrecordzab_c_subscription_item"
+                ]
             });
-            // test comment
         } catch (e) {
             log.error({
                 title: "Error in get input",
@@ -100,7 +123,7 @@ define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
     const reduce = reduceContext => {
         try {
             let salesOrder = record.load({
-                type: transaction.Type.SALES_ORDER,
+                type: record.Type.SALES_ORDER,
                 id: reduceContext.key,
                 isDynamic: true
             });
@@ -183,7 +206,7 @@ define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
         // and the execution number. The execution number indicates whether the error was
         // thrown during the the first attempt to process the key, or during a
         // subsequent attempt.
-
+        let errorSummaryObjects = [];
         summary.mapSummary.errors
             .iterator()
             .each(function (key, error, executionNo) {
@@ -213,7 +236,7 @@ define(["N/record", "N/search", "N/transaction", "./Lib/lodash.min"], (
             .iterator()
             .each(function (key, error, executionNo) {
                 errorSummaryObjects.push({
-                    stage: "Map",
+                    stage: "Reduce",
                     key: key,
                     details: error,
                     executionNo: executionNo

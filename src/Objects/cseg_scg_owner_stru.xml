@@ -68,12 +68,6 @@
   </segmentapplication>
   <permissions>
     <permission>
-      <recordaccesslevel>EDIT</recordaccesslevel>
-      <role>[scriptid=customrole1067]</role>
-      <searchaccesslevel>EDIT</searchaccesslevel>
-      <valuemgmtaccesslevel>EDIT</valuemgmtaccesslevel>
-    </permission>
-    <permission>
       <recordaccesslevel></recordaccesslevel>
       <role>[scriptid=customrole1040]</role>
       <searchaccesslevel></searchaccesslevel>
@@ -142,12 +136,6 @@
     <permission>
       <recordaccesslevel></recordaccesslevel>
       <role>[scriptid=customrole1038]</role>
-      <searchaccesslevel></searchaccesslevel>
-      <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
-    </permission>
-    <permission>
-      <recordaccesslevel></recordaccesslevel>
-      <role>[scriptid=customrole1068]</role>
       <searchaccesslevel></searchaccesslevel>
       <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
     </permission>

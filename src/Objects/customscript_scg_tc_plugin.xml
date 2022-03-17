@@ -1,0 +1,13 @@
+<pluginimplementation scriptid="customscript_scg_tc_plugin">
+  <customplugintype>[scriptid=customscriptzab_plugin_trans_creation]</customplugintype>
+  <description></description>
+  <isinactive>F</isinactive>
+  <loglevel>DEBUG</loglevel>
+  <name>SCG | Transaction Creation Plugin</name>
+  <notifyadmins>F</notifyadmins>
+  <notifyemails></notifyemails>
+  <notifyowner>T</notifyowner>
+  <notifyuser>F</notifyuser>
+  <scriptfile>[/SuiteScripts/scg_zab_plugin.js]</scriptfile>
+  <status>RELEASED</status>
+</pluginimplementation>

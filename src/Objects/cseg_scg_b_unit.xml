@@ -17,19 +17,15 @@
       <sourcelist>STDBODYLOCATION</sourcelist>
       <applications>
         <application>
-          <id>SALE</id>
-          <isapplied>T</isapplied>
-        </application>
-        <application>
           <id>REVENUEARRANGEMENT</id>
           <isapplied>T</isapplied>
         </application>
         <application>
-          <id>OTHERTRANSACTION</id>
+          <id>PURCHASE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
-          <id>PURCHASE</id>
+          <id>SALE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
@@ -42,6 +38,10 @@
       <sourcelist>STDCOLLOCATION</sourcelist>
       <applications>
         <application>
+          <id>PURCHASE</id>
+          <isapplied>T</isapplied>
+        </application>
+        <application>
           <id>EXPENSE</id>
           <isapplied>T</isapplied>
         </application>
@@ -51,10 +51,6 @@
         </application>
         <application>
           <id>SALE</id>
-          <isapplied>T</isapplied>
-        </application>
-        <application>
-          <id>PURCHASE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
@@ -136,12 +132,6 @@
   </segmentapplication>
   <permissions>
     <permission>
-      <recordaccesslevel>EDIT</recordaccesslevel>
-      <role>[scriptid=customrole1067]</role>
-      <searchaccesslevel>EDIT</searchaccesslevel>
-      <valuemgmtaccesslevel>EDIT</valuemgmtaccesslevel>
-    </permission>
-    <permission>
       <recordaccesslevel></recordaccesslevel>
       <role>[scriptid=customrole1007]</role>
       <searchaccesslevel></searchaccesslevel>
@@ -216,12 +206,6 @@
     <permission>
       <recordaccesslevel></recordaccesslevel>
       <role>[scriptid=customrole1038]</role>
-      <searchaccesslevel></searchaccesslevel>
-      <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
-    </permission>
-    <permission>
-      <recordaccesslevel></recordaccesslevel>
-      <role>[scriptid=customrole1068]</role>
       <searchaccesslevel></searchaccesslevel>
       <valuemgmtaccesslevel>VIEW</valuemgmtaccesslevel>
     </permission>

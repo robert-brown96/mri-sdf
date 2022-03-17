@@ -18,6 +18,7 @@
       <feature required="true">CRM</feature>
       <feature required="true">JOBS</feature>
       <feature required="true">RECEIVABLES</feature>
+      <feature required="true">WORKFLOW</feature>
     </features>
     <objects>
       <object>customrole_scg_bill_team_lead</object>
@@ -34,6 +35,7 @@
       <object>customrole1007</object>
       <object>customrecordzab_revenue.custrecordzab_r_location</object>
       <object>customrecordzab_revenue_detail</object>
+      <object>customsearch3187</object>
       <object>customrole1040</object>
       <object>customrole_vena_integrations</object>
       <object>customrecordzab_subscription.custrecordzab_s_location</object>
