@@ -19,7 +19,6 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
      */
     const beforeLoad = context => {
         try {
-            log.debug("BF", context.type);
             if (
                 (context.type === "print" &&
                     context.newRecord.type === "invoice") ||
@@ -100,15 +99,18 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                 if (
                     delMethodNew.length !== delMethodOld.length &&
                     !delMethodNew.includes("1")
-                )
+                ) {
+                    log.debug("Cancelling");
                     return;
+                }
+                const inv = context.newRecord;
                 if (billAdd !== oldBillAdd || isEmpty(invoiceEmails)) {
                     log.debug({
                         title: "UPDATE EMAILS",
                         details: context
                     });
                     let newEmailList = getAddressEmails(context);
-                    const inv = context.newRecord;
+
                     if (!isEmpty(newEmailList)) {
                         log.debug("setting emails");
 
@@ -127,6 +129,14 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                             value: ["2"]
                         });
                     }
+                } else if (
+                    !isEmpty(invoiceEmails) &&
+                    delMethodNew.length === 0
+                ) {
+                    inv.setValue({
+                        fieldId: "custbody_invoice_delivery_type",
+                        value: ["1"]
+                    });
                 }
             }
         } catch (e) {
@@ -175,6 +185,9 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                     let existingTypes = context.newRecord.getValue({
                         fieldId: "custbody_invoice_delivery_type"
                     });
+                    let existingEmails = context.newRecord.getValue({
+                        fieldId: "custbody_invoice_email_address_list"
+                    });
                     if (doNotDeliver) {
                         valObj.custbody_invoice_email_address_list = "";
                         valObj.custbody_invoice_delivery_type = [];
@@ -188,7 +201,15 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                                 emailList;
                         }
                     } else {
-                        if (isEmpty(emailList)) {
+                        log.debug({
+                            title: "OBJf",
+                            details: valObj
+                        });
+                        if (isEmpty(existingEmails)) {
+                            log.debug({
+                                title: "ADDEMAIL",
+                                details: emailList
+                            });
                             valObj.custbody_invoice_email_address_list =
                                 emailList;
                             valObj.custbody_invoice_delivery_type = ["1"];
@@ -198,10 +219,14 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                             }) === 2 &&
                             context.newRecord.getValue({
                                 fieldId: "custbody_invoice_delivery_type"
-                            }) === ""
+                            }).length === 0
                         ) {
                             valObj.custbody_invoice_delivery_type = ["2"];
                         }
+                        log.debug({
+                            title: "OBJff",
+                            details: valObj
+                        });
 
                         let cusFields = search.lookupFields({
                             type: search.Type.CUSTOMER,
@@ -213,6 +238,11 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                         if (cusFields.custentity_scg_inv_del_type.length > 0)
                             valObj.custbody_invoice_delivery_type =
                                 cusFields.custentity_scg_inv_del_type;
+
+                        log.debug({
+                            title: "OBJfff",
+                            details: valObj
+                        });
                     }
                     log.debug({
                         title: "OBJ",
