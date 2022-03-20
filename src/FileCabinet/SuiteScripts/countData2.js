@@ -21,8 +21,8 @@ define([
      */
     function beforeSubmit(context) {
         try {
-            if (runtime.executionContext === runtime.ContextType.MAP_REDUCE)
-                return;
+            // if (runtime.executionContext === runtime.ContextType.MAP_REDUCE)
+            //     return;
 
             setNextUpliftDate(context);
         } catch (e) {
@@ -42,12 +42,10 @@ define([
     function afterSubmit(context) {
         try {
             // if (context.type !== context.UserEventType.CREATE) return;
-            const billingFreq = getBillingPerYear(
-                context.newRecord.getValue({
-                    fieldId:
-                        ZAB_CONSTANTS.RECORD_TYPE.ZAB_COUNT.Field.SUBSCRIPTION
-                })
-            );
+            const subId = context.newRecord.getValue({
+                fieldId: ZAB_CONSTANTS.RECORD_TYPE.ZAB_COUNT.Field.SUBSCRIPTION
+            });
+            const billingFreq = getBillingPerYear(subId);
             switch (billingFreq) {
                 case 2:
                     ZAB_CONSTANTS.createBiannualRecs([context.newRecord.id]);
@@ -159,6 +157,11 @@ define([
             context.type !== context.UserEventType.EDIT
         )
             return;
+        const lastPDate = context.newRecord.getValue(
+            ZAB_CONSTANTS.RECORD_TYPE.ZAB_COUNT.Field.LAST_PROCESSED
+        );
+        if (lastPDate) return;
+
         var nextUpliftDate = new Date();
         var countRec = context.newRecord;
 
