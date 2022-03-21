@@ -279,6 +279,7 @@ define([
 
             //standard filters
             const standardSearch = search.load({
+                //5 gov
                 id: "customsearch_scg_cd_evergreen_2"
             });
             return search.create({
@@ -349,6 +350,7 @@ define([
             newCd.uplift = mapData.formulapercent;
             //lookup fields from subscription
             let subFields = search.lookupFields({
+                //1 gov
                 type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
                 id: newCd.subscription,
                 columns: [
@@ -430,6 +432,7 @@ define([
             if (alreadyProcessed) {
                 let countRec = JSON.parse(o);
                 let check = search.lookupFields({
+                    //1 gov
                     type: COUNT.ID,
                     id: countRec.id,
                     columns: ["custrecord_scg_last_process_date"]
@@ -465,6 +468,7 @@ define([
         }
 
         // copy source record
+        // 2 gov
         newCd = record.copy({
             type: COUNT.ID,
             id: oldCd.id,
@@ -507,8 +511,9 @@ define([
             }
             //save new rec
             //set to record and last processed on old rec
-            resultId = newCd.save();
+            resultId = newCd.save(); //4 gov
             record.submitFields({
+                //2 gov
                 type: COUNT.ID,
                 id: oldCd.id,
                 values: {
@@ -521,6 +526,7 @@ define([
             //loop through subsequent records and set parent count record
             for (let e = 1; e < sortedCds.length; e++) {
                 record.submitFields({
+                    //2 gov
                     type: COUNT.ID,
                     id: sortedCds[e].id,
                     values: {
@@ -651,11 +657,12 @@ define([
                 value: sumRate
             });
 
-            resultId = newCd.save();
+            resultId = newCd.save(); // 4 gov
             //assign TO record for all associated records
             _.forEach(sortedCds, cd => {
                 if (cd.id) {
                     record.submitFields({
+                        //2 gov
                         type: COUNT.ID,
                         id: cd.id,
                         values: {
@@ -822,11 +829,12 @@ define([
             return !isPresent;
         });
 
-        log.debug({
-            title: `SUBS: ${filteredArr.length}`,
-            details: filteredArr
+        log.audit({
+            title: `SUMMARIZING SUBSCRIPTIONS: ${filteredArr.length}`
         });
+
         //set fields on subscription for summary processing
+        // 8 governance units per subscription
         _.forEach(filteredArr, subString => {
             const fields = subString;
 
@@ -843,6 +851,7 @@ define([
             log.debug(uplifts);
             // const newRecs = recs.map(x => x.newId);
             let processJob = record.create({
+                //2 gov
                 type: "customrecord_scg_renewal_process",
                 isDynamic: true
             });
@@ -864,9 +873,10 @@ define([
                     fieldId: "custrecord_scg_uplift_process",
                     value: uplifts[0]
                 });
-            const pjId = processJob.save();
+            const pjId = processJob.save(); // 4 gov
             log.debug("JOB", pjId);
             let subResults = record.submitFields({
+                //2 gov
                 type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
                 id: fields.subscription,
                 values: {
