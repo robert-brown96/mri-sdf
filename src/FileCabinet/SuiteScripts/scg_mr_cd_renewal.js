@@ -845,62 +845,87 @@ define([
         log.audit({
             title: `SUMMARIZING SUBSCRIPTIONS: ${filteredArr.length}`
         });
-
-        //set fields on subscription for summary processing
-        // 8 governance units per subscription
+        let summarizeData = [];
         _.forEach(filteredArr, subString => {
-            if (summary.isRestarted) {
-            }
             const fields = subString;
 
             log.debug(fields, countRes[fields.subscription]);
-
             const subId = fields.subscription;
             const recs = countRes[subId];
-            let uplifts = _.uniq(
-                recs.map(x => {
-                    let temp = parseFloat(x.uplift);
-                    if (typeof temp === "number" && temp > 0) return temp;
-                })
-            );
-            log.debug(uplifts);
-            // const newRecs = recs.map(x => x.newId);
-            let processJob = record.create({
-                //2 gov
-                type: "customrecord_scg_renewal_process",
-                isDynamic: true
-            });
-            processJob.setValue({
-                fieldId: "custrecord_scg_res_json",
-                value: JSON.stringify(recs)
-            });
-            processJob.setValue({
-                fieldId: "custrecord_scg_pr_sub",
-                value: subId
-            });
-            processJob.setValue({
-                fieldId: "custrecord_scg_p_last_effective",
-                value: new Date(fields.last_change)
-            });
-
-            if (uplifts[0])
-                processJob.setValue({
-                    fieldId: "custrecord_scg_uplift_process",
-                    value: uplifts[0]
-                });
-            const pjId = processJob.save(); // 4 gov
-            log.debug("JOB", pjId);
-            let subResults = record.submitFields({
-                //2 gov
-                type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
-                id: fields.subscription,
-                values: {
-                    custrecord_scg_last_uplift_date: new Date(),
-                    custrecord_scg_uplift_log: pjId,
-                    custrecord_scg_next_anniversary: new Date(fields.nextAnn)
-                }
+            const nextAnn = fields.nextAnn;
+            const last_change = fields.last_change;
+            summarizeData.push({
+                subId: subId,
+                recs: recs,
+                nextAnn: nextAnn,
+                last_change: last_change
             });
         });
+
+        let summarizeTask = task.create({
+            taskType: task.TaskType.MAP_REDUCE,
+            scriptId: "customscript_scg_summarize"
+        });
+        summarizeTask.deploymentId = "customdeploy_scg_sum";
+        summarizeTask.params = {
+            custscript_scg_summarizing: JSON.stringify(summarizeData)
+        };
+
+        summarizeTask.submit();
+
+        //set fields on subscription for summary processing
+        // 8 governance units per subscription
+        // _.forEach(filteredArr, subString => {
+        //     const fields = subString;
+        //
+        //     log.debug(fields, countRes[fields.subscription]);
+        //
+        //     const subId = fields.subscription;
+        //     const recs = countRes[subId];
+        //     let uplifts = _.uniq(
+        //         recs.map(x => {
+        //             let temp = parseFloat(x.uplift);
+        //             if (typeof temp === "number" && temp > 0) return temp;
+        //         })
+        //     );
+        //     log.debug(uplifts);
+        //     // const newRecs = recs.map(x => x.newId);
+        //     let processJob = record.create({
+        //         //2 gov
+        //         type: "customrecord_scg_renewal_process",
+        //         isDynamic: true
+        //     });
+        //     processJob.setValue({
+        //         fieldId: "custrecord_scg_res_json",
+        //         value: JSON.stringify(recs)
+        //     });
+        //     processJob.setValue({
+        //         fieldId: "custrecord_scg_pr_sub",
+        //         value: subId
+        //     });
+        //     processJob.setValue({
+        //         fieldId: "custrecord_scg_p_last_effective",
+        //         value: new Date(fields.last_change)
+        //     });
+        //
+        //     if (uplifts[0])
+        //         processJob.setValue({
+        //             fieldId: "custrecord_scg_uplift_process",
+        //             value: uplifts[0]
+        //         });
+        //     const pjId = processJob.save(); // 4 gov
+        //     log.debug("JOB", pjId);
+        //     let subResults = record.submitFields({
+        //         //2 gov
+        //         type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
+        //         id: fields.subscription,
+        //         values: {
+        //             custrecord_scg_last_uplift_date: new Date(),
+        //             custrecord_scg_uplift_log: pjId,
+        //             custrecord_scg_next_anniversary: new Date(fields.nextAnn)
+        //         }
+        //     });
+        // });
 
         log.audit({
             title: "Created " + totalProcessed + " Count records",
