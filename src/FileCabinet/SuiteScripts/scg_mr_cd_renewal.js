@@ -14,10 +14,22 @@ define([
     "N/error",
     "N/format",
     "N/query",
+    "N/task",
     "./Lib/_scg_mri_lib.js",
     "SuiteScripts/Lib/lodash.min",
     "SuiteScripts/Lib/moment.min"
-], (search, record, runtime, error, format, query, CONSTANTS, _, moment) => {
+], (
+    search,
+    record,
+    runtime,
+    error,
+    format,
+    query,
+    task,
+    CONSTANTS,
+    _,
+    moment
+) => {
     /**
      * @typedef {Object} countRec
      * @property subscription {Number}
@@ -744,6 +756,7 @@ define([
      * @param summary.seconds - Script run time
      * @param summary.yields - Number of yields
      *
+     * @gov 8 * subscriptions
      */
     const summarize = summary => {
         let mapErrors = [];
@@ -836,6 +849,8 @@ define([
         //set fields on subscription for summary processing
         // 8 governance units per subscription
         _.forEach(filteredArr, subString => {
+            if (summary.isRestarted) {
+            }
             const fields = subString;
 
             log.debug(fields, countRes[fields.subscription]);

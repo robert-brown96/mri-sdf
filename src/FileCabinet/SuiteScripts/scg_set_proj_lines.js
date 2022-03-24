@@ -21,6 +21,7 @@ define(["N/record", "N/search", "./Lib/lodash.min"], (record, search, _) => {
             // return search.load({
             //     id: "customsearch_scg_charge_proj"
             // });
+            log.audit("START");
 
             return search.create({
                 type: "customrecordzab_charge",
@@ -251,6 +252,8 @@ define(["N/record", "N/search", "./Lib/lodash.min"], (record, search, _) => {
                 });
                 return true;
             });
+
+        log.audit("FINISH");
     };
 
     return { getInputData, map, reduce, summarize };
