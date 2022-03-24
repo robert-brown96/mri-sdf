@@ -18,6 +18,7 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
 
     const getInputData = inputContext => {
         try {
+            log.audit("START");
             const scrip = runtime.getCurrentScript();
             let dataIn = scrip.getParameter({
                 name: "custscript_scg_summarizing"
@@ -74,6 +75,10 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
             );
 
             log.debug(uplifts);
+            processJob.setValue({
+                fieldId: "custrecord_scg_p_last_effective",
+                value: new Date(last_change)
+            });
 
             processJob.setValue({
                 fieldId: "custrecord_scg_res_json",
@@ -94,12 +99,12 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
 
             let subResults = record.submitFields({
                 //2 gov
-                type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
-                id: fields.subscription,
+                type: "customrecordzab_subscription",
+                id: subId,
                 values: {
                     custrecord_scg_last_uplift_date: new Date(),
                     custrecord_scg_uplift_log: pjId,
-                    custrecord_scg_next_anniversary: new Date(fields.nextAnn)
+                    custrecord_scg_next_anniversary: new Date(nextAnn)
                 }
             });
         } catch (e) {
@@ -110,23 +115,6 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
             throw e.message;
         }
     };
-
-    /**
-     * Defines the function that is executed when the reduce entry point is triggered. This entry point is triggered
-     * automatically when the associated map stage is complete. This function is applied to each group in the provided context.
-     * @param {Object} reduceContext - Data collection containing the groups to process in the reduce stage. This parameter is
-     *     provided automatically based on the results of the map stage.
-     * @param {Iterator} reduceContext.errors - Serialized errors that were thrown during previous attempts to execute the
-     *     reduce function on the current group
-     * @param {number} reduceContext.executionNo - Number of times the reduce function has been executed on the current group
-     * @param {boolean} reduceContext.isRestarted - Indicates whether the current invocation of this function is the first
-     *     invocation (if true, the current invocation is not the first invocation and this function has been restarted)
-     * @param {string} reduceContext.key - Key to be processed during the reduce stage
-     * @param {List<String>} reduceContext.values - All values associated with a unique key that was passed to the reduce stage
-     *     for processing
-     * @since 2015.2
-     */
-    const reduce = reduceContext => {};
 
     /**
      * Defines the function that is executed when the summarize entry point is triggered. This entry point is triggered
@@ -147,7 +135,31 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
      * @param {Object} summaryContext.reduceSummary - Statistics about the reduce stage
      * @since 2015.2
      */
-    const summarize = summaryContext => {};
+    const summarize = summaryContext => {
+        let mapErrors = [];
+        // For each error thrown during the map stage, log the error, the corresponding key,
+        // and the execution number. The execution number indicates whether the error was
+        // thrown during the the first attempt to process the key, or during a
+        // subsequent attempt.
 
-    return { getInputData, map, reduce, summarize };
+        summaryContext.mapSummary.errors
+            .iterator()
+            .each(function (key, error, executionNo) {
+                log.error({
+                    title:
+                        "Map error for key: " +
+                        key +
+                        ", execution no.  " +
+                        executionNo,
+                    details: error
+                });
+                mapErrors.push({ asset: key, message: error, stage: "map" });
+                return true;
+            });
+        log.debug({ title: "MAP ERRORS", details: mapErrors });
+
+        log.audit("FINISH");
+    };
+
+    return { getInputData, map, summarize };
 });
