@@ -111,25 +111,26 @@
         </single>
       </recurrence>
     </scriptdeployment>
-    <scriptdeployment scriptid="customdeploy1">
+    <scriptdeployment scriptid="customdeploy_scg_sched_cd">
       <buffersize>1</buffersize>
-      <concurrencylimit>5</concurrencylimit>
+      <concurrencylimit>10</concurrencylimit>
       <custscript_scg_reprocess_subscriptions></custscript_scg_reprocess_subscriptions>
       <custscript_scg_sea_param></custscript_scg_sea_param>
       <custscript_scg_sub_param></custscript_scg_sub_param>
       <isdeployed>T</isdeployed>
-      <loglevel>DEBUG</loglevel>
+      <loglevel>AUDIT</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>NOTSCHEDULED</status>
-      <title>SCG | MR | CD v2</title>
-      <yieldaftermins>60</yieldaftermins>
+      <title>SCG | MR | CD Schedule</title>
+      <yieldaftermins>15</yieldaftermins>
       <recurrence>
-        <single>
+        <daily>
+          <everyxdays>1</everyxdays>
           <repeat></repeat>
-          <startdate>2021-06-01</startdate>
-          <starttime>23:00:00Z</starttime>
-        </single>
+          <startdate>2022-03-21</startdate>
+          <starttime>00:00:00Z</starttime>
+        </daily>
       </recurrence>
     </scriptdeployment>
   </scriptdeployments>

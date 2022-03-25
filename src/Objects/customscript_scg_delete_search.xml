@@ -38,15 +38,15 @@
   <scriptdeployments>
     <scriptdeployment scriptid="customdeploy2">
       <buffersize>1</buffersize>
-      <concurrencylimit>1</concurrencylimit>
-      <custscriptscg_srch_del_id>3201</custscriptscg_srch_del_id>
+      <concurrencylimit>9</concurrencylimit>
+      <custscriptscg_srch_del_id>3237</custscriptscg_srch_del_id>
       <isdeployed>T</isdeployed>
-      <loglevel>DEBUG</loglevel>
+      <loglevel>AUDIT</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>NOTSCHEDULED</status>
       <title>SCG | MR | Delete Records Charge</title>
-      <yieldaftermins>60</yieldaftermins>
+      <yieldaftermins>3</yieldaftermins>
       <recurrence>
         <single>
           <repeat></repeat>
@@ -58,14 +58,14 @@
     <scriptdeployment scriptid="customdeploy1">
       <buffersize>1</buffersize>
       <concurrencylimit>5</concurrencylimit>
-      <custscriptscg_srch_del_id>3207</custscriptscg_srch_del_id>
+      <custscriptscg_srch_del_id>3241</custscriptscg_srch_del_id>
       <isdeployed>T</isdeployed>
       <loglevel>ERROR</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>NOTSCHEDULED</status>
       <title>SCG | MR | Delete Records</title>
-      <yieldaftermins>60</yieldaftermins>
+      <yieldaftermins>3</yieldaftermins>
       <recurrence>
         <single>
           <repeat></repeat>

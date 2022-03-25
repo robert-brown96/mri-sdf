@@ -237,4 +237,11 @@
       <subtab></subtab>
     </customrecordcustomfield>
   </customrecordcustomfields>
+  <permissions>
+    <permission>
+      <permittedlevel>VIEW</permittedlevel>
+      <permittedrole>[scriptid=customrole_scg_bill_team_lead_2]</permittedrole>
+      <restriction></restriction>
+    </permission>
+  </permissions>
 </customrecordtype>

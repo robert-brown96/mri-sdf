@@ -11,25 +11,12 @@ define([
     "N/search",
     "N/record",
     "N/runtime",
-    "N/error",
-    "N/format",
-    "N/query",
     "N/task",
+    "N/file",
     "./Lib/_scg_mri_lib.js",
     "SuiteScripts/Lib/lodash.min",
     "SuiteScripts/Lib/moment.min"
-], (
-    search,
-    record,
-    runtime,
-    error,
-    format,
-    query,
-    task,
-    CONSTANTS,
-    _,
-    moment
-) => {
+], (search, record, runtime, task, file, CONSTANTS, _, moment) => {
     /**
      * @typedef {Object} countRec
      * @property subscription {Number}
@@ -68,7 +55,7 @@ define([
      */
     const getInputData = () => {
         try {
-            log.debug({
+            log.audit({
                 title: "START",
                 details: "Get Input Data"
             });
@@ -213,50 +200,7 @@ define([
                     title: "OVERRIDE",
                     details: redoSubscriptions
                 });
-                // const subIds = JSON.parse(redoSubscriptions);
-                // let oldCdQuery = query.create({
-                //     type: "customrecordzab_count_data"
-                // });
-                // let assetCondition = oldCdQuery.createCondition({
-                //     fieldId: "custrecord_scg_sf_asset",
-                //     operator: query.Operator.EMPTY_NOT
-                // });
-                // let subCondition = oldCdQuery.createCondition({
-                //     fieldId: "custrecordzab_cd_subscription",
-                //     operator: query.Operator.ANY_OF,
-                //     values: subIds
-                // });
-                // let toRecConditino = oldCdQuery.createCondition({
-                //     fieldId: "custrecord_scg_transformed_to",
-                //     operator: query.Operator.EMPTY
-                // });
-                // let itemJoin = oldCdQuery.joinTo({
-                //     fieldId: "custrecordzab_cd_item",
-                //     target: query.Type.ITEM
-                // });
-                // let renewCondition = itemJoin.createCondition({
-                //     fieldId: "custitem_scg_is_renewable",
-                //     operator: query.Operator.IS,
-                //     values: true
-                // });
-                // oldCdQuery.condition = oldCdQuery.and(
-                //     assetCondition,
-                //     subCondition,
-                //     toRecConditino,
-                //     renewCondition
-                // );
-                // oldCdQuery.columns = [
-                //     oldCdQuery.createColumn({
-                //         fieldId: "custrecord_scg_source_recs",
-                //         alias: "source_recs"
-                //     })
-                // ];
 
-                // let oldCdCollection = oldCdQuery.run().asMappedResults();
-                // log.debug(oldCdCollection);
-                // // let oldCdIds = oldCdCollection.map(o => {
-                // //     return o.source_recs;
-                // // });
                 let oldCdIds = JSON.parse(redoSubscriptions).map(i =>
                     Number(i)
                 );
@@ -866,66 +810,23 @@ define([
             taskType: task.TaskType.MAP_REDUCE,
             scriptId: "customscript_scg_summarize"
         });
+        summarizeData = JSON.stringify(summarizeData);
+
+        let fileObj = file.create({
+            name: `countdatasummary${new Date()}.txt`,
+            fileType: file.Type.PLAINTEXT,
+            contents: summarizeData
+        });
+
+        fileObj.folder = 806;
+        let fileId = fileObj.save();
+
         summarizeTask.deploymentId = "customdeploy_scg_sum";
         summarizeTask.params = {
-            custscript_scg_summarizing: JSON.stringify(summarizeData)
+            custscript_scg_file_sum: fileId
         };
 
         summarizeTask.submit();
-
-        //set fields on subscription for summary processing
-        // 8 governance units per subscription
-        // _.forEach(filteredArr, subString => {
-        //     const fields = subString;
-        //
-        //     log.debug(fields, countRes[fields.subscription]);
-        //
-        //     const subId = fields.subscription;
-        //     const recs = countRes[subId];
-        //     let uplifts = _.uniq(
-        //         recs.map(x => {
-        //             let temp = parseFloat(x.uplift);
-        //             if (typeof temp === "number" && temp > 0) return temp;
-        //         })
-        //     );
-        //     log.debug(uplifts);
-        //     // const newRecs = recs.map(x => x.newId);
-        //     let processJob = record.create({
-        //         //2 gov
-        //         type: "customrecord_scg_renewal_process",
-        //         isDynamic: true
-        //     });
-        //     processJob.setValue({
-        //         fieldId: "custrecord_scg_res_json",
-        //         value: JSON.stringify(recs)
-        //     });
-        //     processJob.setValue({
-        //         fieldId: "custrecord_scg_pr_sub",
-        //         value: subId
-        //     });
-        //     processJob.setValue({
-        //         fieldId: "custrecord_scg_p_last_effective",
-        //         value: new Date(fields.last_change)
-        //     });
-        //
-        //     if (uplifts[0])
-        //         processJob.setValue({
-        //             fieldId: "custrecord_scg_uplift_process",
-        //             value: uplifts[0]
-        //         });
-        //     const pjId = processJob.save(); // 4 gov
-        //     log.debug("JOB", pjId);
-        //     let subResults = record.submitFields({
-        //         //2 gov
-        //         type: CONSTANTS.RECORD_TYPE.ZAB_SUBSCRIPTION.ID,
-        //         id: fields.subscription,
-        //         values: {
-        //             custrecord_scg_last_uplift_date: new Date(),
-        //             custrecord_scg_uplift_log: pjId,
-        //             custrecord_scg_next_anniversary: new Date(fields.nextAnn)
-        //         }
-        //     });
-        // });
 
         log.audit({
             title: "Created " + totalProcessed + " Count records",

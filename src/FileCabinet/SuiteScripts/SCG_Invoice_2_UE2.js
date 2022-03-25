@@ -151,6 +151,11 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
      */
     const afterSubmit = context => {
         try {
+            if (
+                context.type !== context.UserEventType.CREATE &&
+                context.type !== context.UserEventType.EDIT
+            )
+                return;
             if (context.newRecord.type === record.Type.INVOICE) {
                 if (context.type === context.UserEventType.CREATE) {
                     let valObj = {};
@@ -180,7 +185,7 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                             title: "Pre set delivery",
                             details: existingTypes
                         });
-                        if (isEmpty(emailList)) {
+                        if (!isEmpty(emailList)) {
                             valObj.custbody_invoice_email_address_list =
                                 emailList;
                         }

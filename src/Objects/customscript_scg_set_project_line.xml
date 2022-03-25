@@ -11,7 +11,7 @@
       <buffersize>1</buffersize>
       <concurrencylimit>3</concurrencylimit>
       <isdeployed>T</isdeployed>
-      <loglevel>ERROR</loglevel>
+      <loglevel>AUDIT</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>SCHEDULED</status>
