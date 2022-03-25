@@ -134,6 +134,12 @@
       <valuemgmtaccesslevel>FULL</valuemgmtaccesslevel>
     </permission>
     <permission>
+      <recordaccesslevel></recordaccesslevel>
+      <role>[scriptid=customrole1015]</role>
+      <searchaccesslevel></searchaccesslevel>
+      <valuemgmtaccesslevel>NONE</valuemgmtaccesslevel>
+    </permission>
+    <permission>
       <recordaccesslevel>EDIT</recordaccesslevel>
       <role>[scriptid=customrole_vena_integrations]</role>
       <searchaccesslevel>EDIT</searchaccesslevel>

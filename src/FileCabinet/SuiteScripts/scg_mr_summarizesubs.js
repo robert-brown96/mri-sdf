@@ -2,7 +2,12 @@
  * @NApiVersion 2.1
  * @NScriptType MapReduceScript
  */
-define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
+define(["N/record", "N/runtime", "N/file", "./Lib/lodash.min"], (
+    record,
+    runtime,
+    file,
+    _
+) => {
     /**
      * Defines the function that is executed at the beginning of the map/reduce process and generates the input data.
      * @param {Object} inputContext
@@ -20,12 +25,22 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
         try {
             log.audit("START");
             const scrip = runtime.getCurrentScript();
-            let dataIn = scrip.getParameter({
-                name: "custscript_scg_summarizing"
-            });
-            dataIn = dataIn ? JSON.parse(dataIn) : null;
 
-            return dataIn;
+            let fileId = scrip.getParameter({
+                name: "custscript_scg_file_sum"
+            });
+            // Load subscription file data
+            let fileObj = file.load({
+                id: fileId
+            });
+            log.audit({
+                title: "SUMMARIZING",
+                details: fileObj.size
+            });
+            let contents = fileObj.getContents();
+            contents = contents ? JSON.parse(contents) : null;
+
+            return contents;
         } catch (e) {
             log.error({
                 title: "Get Input Error",
@@ -156,7 +171,17 @@ define(["N/record", "N/runtime", "./Lib/lodash.min"], (record, runtime, _) => {
                 mapErrors.push({ asset: key, message: error, stage: "map" });
                 return true;
             });
-        log.debug({ title: "MAP ERRORS", details: mapErrors });
+        log.audit({ title: "MAP ERRORS", details: mapErrors });
+
+        // delete file
+        const scrip = runtime.getCurrentScript();
+
+        let fileId = scrip.getParameter({
+            name: "custscript_scg_file_sum"
+        });
+        file.delete({
+            id: fileId
+        });
 
         log.audit("FINISH");
     };
