@@ -262,7 +262,7 @@ define([
                     fileType: file.Type.CSV,
                     contents: contents,
                     description: "usageOutput",
-                    folder: 2275
+                    folder: 9175
                 });
 
                 var fileId = fileObj.save();
@@ -300,41 +300,21 @@ define([
                 //SA 62735
                 //Initialize Values Arrays
                 var content = new Array();
-                var cells = new Array();
-                var headers = new Array();
-                var temp = new Array();
+                var csvColumns = [];
+                var lineOne = "";
                 var x = 0;
 
-                for (var i = 0; i < columns.length; i++) {
-                    headers[i] = columns[i].label;
-                    log.debug("col", headers[i]);
-                }
-                content[x] = headers;
-                x = 1;
-
-                /**     var completeResults = [];
-
-                     var pagedData = usageSearch.runPaged({
-                        pageSize: 1000
-                    });
-                     pagedData.pageRanges.forEach(function(pageRange){
-                        var myPage = pagedData.fetch({index: pageRange.index});
-                        myPage.data.forEach(function(result){
-                            for (var y=0; y < columns.length; y++){
-                                var searchResult = result.getValue({
-                                    name: columns[y].name
-                                });
-                                temp[y] = searchResult;
-                                log.debug(temp[y],searchResult);
-
-                            }//end y loop
-                            content[x] += temp;
-                            x++;
-                        })
-                    });
-                     */
+                // for (var i = 0; i < columns.length; i++) {
+                //     headers[i] = columns[i].label;
+                //     log.debug("col", headers[i]);
+                // }
+                // content[x] = headers;
+                // x = 1;
 
                 var usageResultSet = usageSearch.run();
+                columns.forEach(function (col) {
+                    csvColumns.push(col.label);
+                });
                 var currentRange = usageResultSet.getRange({
                     start: 0,
                     end: 1000
@@ -343,22 +323,23 @@ define([
                 var j = 0; //iteraotor for current
                 while (j < currentRange.length) {
                     var result = currentRange[j];
+                    var temp = "";
 
                     //logic on result
-                    for (var y = 0; y < columns.length; y++) {
+                    for (var t = 0; t < columns.length; t++) {
                         var searchResult = result.getValue({
-                            name: columns[y].name
+                            name: columns[t].name
                         });
-                        temp[y] = searchResult;
-                        //log.debug(temp[y],searchResult);
+                        temp += '"' + searchResult + '"' + ",";
+                        //  log.debug(temp, searchResult);
                     } //end y loop
-                    content[x] += temp;
+                    content.push(temp);
                     x++;
 
                     //bump iterators
                     i++;
                     j++;
-                    if (j == 1000) {
+                    if (j === 1000) {
                         j = 0; //reset j
                         currentRange = usageResultSet.getRange({
                             start: i,
@@ -371,34 +352,24 @@ define([
                     details: usageResultSet.length
                 });
 
-                /**var usageResult = usageSearch.run();
-                     usageResult.each(entry);
+                for (var k = 0; k < csvColumns.length; k++) {
+                    lineOne += csvColumns[j] + ",";
+                }
+                lineOne = lineOne + "\n";
 
-                     function entry(result){
-                        for (var y = 0; y < columns.length; y++){
-                            var searchResult = result.getValue({
-                                name: columns[y].name
-                            });
-                            temp[y] = searchResult;
-                            log.debug(temp[y],searchResult);
-                        }//end y for loop
-                        content[x] += temp;
-                        x++;
-                        return true;
-                    };//end run 1*/
-
-                //Create string variable for content
-                var contents = "";
-                for (var z = 0; z < content.length; z++) {
-                    contents += content[z].toString() + "\n";
-                } //end z for
-
+                for (var y = 0; y < content.length; y++) {
+                    lineOne += content[y].toString() + "\n";
+                }
+                log.debug({
+                    title: "Contents from Line One",
+                    details: JSON.stringify(lineOne)
+                });
                 var fileObj = file.create({
                     name: dataIn.transactionId + "usageDetailOutput",
                     fileType: file.Type.CSV,
-                    contents: contents,
+                    contents: lineOne,
                     description: "usageOutput",
-                    folder: 2275,
+                    folder: 9175,
                     isOnline: true
                 });
                 var fileId = fileObj.save();
@@ -464,7 +435,7 @@ define([
                     fileType: file.Type.CSV,
                     contents: lineOne,
                     description: "usageOutput",
-                    folder: 2275,
+                    folder: 9175,
                     isOnline: true
                 });
                 var fileId = fileObj.save();
@@ -499,7 +470,7 @@ define([
                 });
 
                 var newFile = renderer.renderAsPdf();
-                newFile.folder = 2275;
+                newFile.folder = 9175;
                 newFile.name = tranId + "usageDetailOutput";
                 newFile.isOnline = true;
 

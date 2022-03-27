@@ -302,6 +302,34 @@ define(["N/record", "N/error", "N/search"], function (record, error, search) {
              */ //  });
     }
 
+    // const setCSLabel = context => {
+    //     if (context.type === context.UserEventType.CREATE) {
+    //         const newRec = context.newRecord;
+    //         let csId = newRec.getValue({
+    //             fieldId: "custrecordzab_si_charge_schedule"
+    //         });
+    //         if (!csId || csId === "") {
+    //             let subCs = search.lookupFields({
+    //                 type: "customrecordzab_subscription",
+    //                 id: newRec.getValue({
+    //                     fieldId: "custrecordzab_si_subscription"
+    //                 }),
+    //                 columns: ["custrecordzab_s_charge_schedule"]
+    //             });
+    //             subCs = subCs[0].value;
+    //             csId = subCs;
+    //         }
+    //
+    //         let csDisplay = search.lookupFields({
+    //             type: "customrecordzab_charge_schedules",
+    //             id: csId,
+    //             columns:['custrecord_scg_cs_disp']
+    //         });
+    //         newRec
+    //
+    //     }
+    //};
+
     return {
         //  beforeLoad : beforeLoad,
         //    beforeSubmit : beforeSubmit,

@@ -168,7 +168,7 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                     const markedForGrouping = context.newRecord.getValue({
                         fieldId: "forinvoicegrouping"
                     });
-                    if (markedForGrouping) valObj.forinvoicegrouping = false;
+                    //     if (markedForGrouping) valObj.forinvoicegrouping = false;
 
                     let emailList = getAddressEmails(context);
                     let doNotDeliver = context.newRecord.getValue({
@@ -364,24 +364,24 @@ define(["N/record", "N/search", "N/ui/serverWidget", "N/runtime"], (
                 })
             );
             const resultSet = agingSearch.run().getRange(0, 1000);
-            /* log.debug({
+            log.debug({
                 title: "Results: ",
                 details: resultSet
-            });*/
+            });
             let totalBalance = 0;
             resultSet.forEach(result => {
-                /*log.debug({
+                log.debug({
                     title: "Balance",
                     details: result.getValue({
                         name: "fxamountremaining",
                         summary: "SUM"
                     })
-                });*/
+                });
                 totalBalance =
                     totalBalance +
                     Number(
                         result.getValue({
-                            name: "formulanumeric",
+                            name: "fxamountremaining",
                             summary: "sum"
                         })
                     );
