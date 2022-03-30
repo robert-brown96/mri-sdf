@@ -48,21 +48,6 @@ define([
         });
 
         try {
-            log.debug({
-                title: dataIn,
-                details: dataIn.lineCharges
-            });
-
-            //get transaction type
-            var tranType = ZAB_CONSTANTS.getTransactionType(
-                dataIn.transactionId
-            );
-
-            var tran = record.load({
-                type: tranType,
-                id: dataIn.transactionId,
-                isDynamic: true
-            });
         } catch (e) {
             //end try
             log.error({

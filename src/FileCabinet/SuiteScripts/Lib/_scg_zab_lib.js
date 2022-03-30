@@ -300,21 +300,22 @@ define([
                 //SA 62735
                 //Initialize Values Arrays
                 var content = new Array();
+                var headers = [];
                 var csvColumns = [];
                 var lineOne = "";
                 var x = 0;
 
-                // for (var i = 0; i < columns.length; i++) {
-                //     headers[i] = columns[i].label;
-                //     log.debug("col", headers[i]);
-                // }
-                // content[x] = headers;
-                // x = 1;
+                for (var i = 0; i < columns.length; i++) {
+                    headers[i] = columns[i].label;
+                    log.debug("col", headers[i]);
+                }
+                content[x] = headers;
+                x = 1;
 
                 var usageResultSet = usageSearch.run();
-                columns.forEach(function (col) {
-                    csvColumns.push(col.label);
-                });
+                // columns.forEach(function (col) {
+                //     csvColumns.push(col.label);
+                // });
                 var currentRange = usageResultSet.getRange({
                     start: 0,
                     end: 1000
