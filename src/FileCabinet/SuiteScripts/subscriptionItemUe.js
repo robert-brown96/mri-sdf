@@ -18,6 +18,7 @@ define(["N/record", "N/error", "N/search"], function (record, error, search) {
             )
                 return;
             // setBillTo(context);
+            //    billToOverride(context);
         } catch (e) {
             log.error({
                 title: "Error",
@@ -69,11 +70,19 @@ define(["N/record", "N/error", "N/search"], function (record, error, search) {
             fieldId: "custrecordmri_si_site_level_account"
         });
 
-        var sub = record.load({
+        // var sub = record.load({
+        //     type: "customrecordzab_subscription",
+        //     id: subI.getValue({
+        //         fieldId: "custrecordzab_si_subscription"
+        //     })
+        // });
+
+        const subFields = search.lookupFields({
             type: "customrecordzab_subscription",
             id: subI.getValue({
                 fieldId: "custrecordzab_si_subscription"
-            })
+            }),
+            columns: ["custrecordzab_s_billing_profile"]
         });
 
         var billingProfile = sub.getValue({
@@ -88,7 +97,7 @@ define(["N/record", "N/error", "N/search"], function (record, error, search) {
             });
         }
 
-        if (billingProfile == 2 || billingProfile == 8) {
+        if (billingProfile === 2) {
             subI.setValue({
                 fieldId: "custrecordzab_si_bill_to_customer",
                 value: site
@@ -330,9 +339,45 @@ define(["N/record", "N/error", "N/search"], function (record, error, search) {
     //     }
     //};
 
+    const billToOverride = context => {
+        try {
+            const subI = context.newRecord;
+            const subId = context.newRecord.getValue({
+                fieldId: "custrecordzab_si_subscription"
+            });
+            const subFields = search.lookupFields({
+                type: "customrecordzab_subscription",
+                id: subId,
+                columns: ["custrecordzab_s_billing_profile"]
+            });
+
+            const bp = subFields.custrecordzab_s_billing_profile[0].value;
+
+            //No Combining Billing Profile = 7
+            if (bp === 7) {
+                subI.setValue({
+                    fieldId: "custrecord_scg_no_bundle",
+                    value: true
+                });
+            } else if (bp === 2) {
+                const site = subI.getValue({
+                    fieldId: "custrecordmri_si_site_level_account"
+                });
+                subI.setValue({
+                    fieldId: "custrecordzab_si_bill_to_customer",
+                    value: site
+                });
+            }
+        } catch (e) {
+            log.error({
+                title: "ERROR IN SETTING BILL TO OVERRIDE",
+                details: e
+            });
+        }
+    };
     return {
         //  beforeLoad : beforeLoad,
-        //    beforeSubmit : beforeSubmit,
+        beforeSubmit: beforeSubmit,
         afterSubmit: afterSubmit
     }; //end return
 }); //end main function
