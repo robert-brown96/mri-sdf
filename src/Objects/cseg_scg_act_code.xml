@@ -18,11 +18,11 @@
     <transactionline>
       <applications>
         <application>
-          <id>PURCHASE</id>
+          <id>EXPENSE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
-          <id>EXPENSE</id>
+          <id>PURCHASE</id>
           <isapplied>T</isapplied>
         </application>
         <application>

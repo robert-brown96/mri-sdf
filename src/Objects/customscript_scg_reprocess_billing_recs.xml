@@ -39,7 +39,7 @@
     <scriptdeployment scriptid="customdeploy_scg_reprocess1">
       <buffersize>1</buffersize>
       <concurrencylimit>3</concurrencylimit>
-      <custscript_cd_search>[scriptid=customsearch3187]</custscript_cd_search>
+      <custscript_cd_search>[scriptid=customsearch_cd_reprocess]</custscript_cd_search>
       <isdeployed>T</isdeployed>
       <loglevel>DEBUG</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>

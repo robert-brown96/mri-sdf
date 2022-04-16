@@ -240,24 +240,36 @@ define([
         });
         if (
             new Date(subFields.custrecord_scg_next_anniversary) <
-            new Date(effective_date)
+                new Date(effective_date) &&
+            subFields.custrecord_scg_next_anniversary
         ) {
-            countRec.setValue({
-                fieldId: ZAB_CONSTANTS.RECORD_TYPE.ZAB_COUNT.Field.END_DATE,
-                value: new Date(
-                    subFields.custrecord_scg_next_anniversary.setDate(
-                        subFields.custrecord_scg_next_anniversary.getDate() - 1
-                    )
-                )
-            });
+            try {
+                const nextAnnD = new Date(
+                    subFields.custrecord_scg_next_anniversary
+                );
+                let nd = nextAnnD.setDate(nextAnnD.getDate() - 1);
+                countRec.setValue({
+                    fieldId: ZAB_CONSTANTS.RECORD_TYPE.ZAB_COUNT.Field.END_DATE,
+                    value: new Date(nd)
+                });
+            } catch (e) {
+                log.error({
+                    title: `error setting uplift for ${context.newRecord.id} with next ann ${subFields.custrecord_scg_next_anniversary}`,
+                    details: e
+                });
+            }
         } else {
             let a = nextUpliftDate;
             a = new Date(a.setDate(a.getDate() - 1));
             log.debug("A:" + a);
+            const originalEnd = countRec.getValue(
+                "custrecord_scg_original_end"
+            );
+            let b = new Date(originalEnd);
 
             countRec.setValue({
                 fieldId: ZAB_CONSTANTS.RECORD_TYPE.ZAB_COUNT.Field.END_DATE,
-                value: a
+                value: a < b ? a : b
             });
         }
         countRec.setValue({

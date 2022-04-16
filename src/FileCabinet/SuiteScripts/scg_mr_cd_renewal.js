@@ -445,18 +445,18 @@ define([
         if (countDataRecs.length === 1) {
             //get uplift percent from original aat
             let upliftPercent = parseFloat(oldCd.uplift);
-            // log.debug({
-            //     title: "Uplift",
-            //     details: upliftPercent
-            // });
+            log.debug({
+                title: "Uplift",
+                details: upliftPercent
+            });
 
             //compare next uplift date to today
             let compare = moment(oldCd.next_anniversary);
             let nextUpliftDate = moment(oldCd.nextUplift);
 
             if (
-                upliftPercent > 0 &&
-                compare.get("y") === nextUpliftDate.get("y")
+                upliftPercent > 0 //&&
+                //  compare.get("y") === nextUpliftDate.get("y")
             ) {
                 let newRate =
                     (upliftPercent / 100 + 1) * parseFloat(oldCd.rate);
@@ -464,6 +464,7 @@ define([
                     fieldId: COUNT.Field.RATE,
                     value: newRate
                 });
+                log.debug("new rate", newRate);
             }
             //save new rec
             //set to record and last processed on old rec

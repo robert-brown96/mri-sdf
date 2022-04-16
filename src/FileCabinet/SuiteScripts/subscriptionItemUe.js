@@ -12,13 +12,10 @@
 define(["N/record", "N/error", "N/search"], function (record, error, search) {
     function beforeSubmit(context) {
         try {
-            if (
-                context.type !== context.UserEventType.CREATE &&
-                context.type !== context.UserEventType.EDIT
-            )
-                return;
+            if (context.type !== context.UserEventType.CREATE) return;
             // setBillTo(context);
             //    billToOverride(context);
+            checkBundling(context);
         } catch (e) {
             log.error({
                 title: "Error",
@@ -371,6 +368,30 @@ define(["N/record", "N/error", "N/search"], function (record, error, search) {
         } catch (e) {
             log.error({
                 title: "ERROR IN SETTING BILL TO OVERRIDE",
+                details: e
+            });
+        }
+    };
+
+    const checkBundling = context => {
+        try {
+            const newRec = context.newRecord;
+
+            let itemFields = search.lookupFields({
+                type: search.Type.ITEM,
+                id: newRec.getValue("custrecordzab_si_item"),
+                columns: ["custitem_scg_do_not_bundle"]
+            });
+            let doNotBundle = itemFields.custitem_scg_do_not_bundle;
+            if (doNotBundle) {
+                newRec.setValue({
+                    fieldId: "custrecord_scg_no_bundle",
+                    value: doNotBundle
+                });
+            }
+        } catch (e) {
+            log.error({
+                title: "checkBundling: Error",
                 details: e
             });
         }

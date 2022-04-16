@@ -38,8 +38,8 @@
   <scriptdeployments>
     <scriptdeployment scriptid="customdeploy2">
       <buffersize>1</buffersize>
-      <concurrencylimit>9</concurrencylimit>
-      <custscriptscg_srch_del_id>3237</custscriptscg_srch_del_id>
+      <concurrencylimit>10</concurrencylimit>
+      <custscriptscg_srch_del_id>3333</custscriptscg_srch_del_id>
       <isdeployed>T</isdeployed>
       <loglevel>AUDIT</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
@@ -57,8 +57,8 @@
     </scriptdeployment>
     <scriptdeployment scriptid="customdeploy1">
       <buffersize>1</buffersize>
-      <concurrencylimit>5</concurrencylimit>
-      <custscriptscg_srch_del_id>3241</custscriptscg_srch_del_id>
+      <concurrencylimit>7</concurrencylimit>
+      <custscriptscg_srch_del_id>3312</custscriptscg_srch_del_id>
       <isdeployed>T</isdeployed>
       <loglevel>ERROR</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>

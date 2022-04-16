@@ -175,7 +175,10 @@ define(["N/record", "N/search", "N/file", "./lodash.min", "./moment.min"], (
     exports.setCoreCountFields = (oldCd, newCd, subFields) => {
         try {
             const COUNT = exports.RECORD_TYPE.ZAB_COUNT;
-
+            log.debug({
+                title: "set core",
+                details: subFields
+            });
             //clear the AAT ID
             newCd.setValue({
                 fieldId: COUNT.Field.AAT,
@@ -593,7 +596,7 @@ define(["N/record", "N/search", "N/file", "./lodash.min", "./moment.min"], (
             }); //end for each
         } catch (e) {
             log.error({
-                title: "ERROR CREATING QUARTERLY RECS",
+                title: "ERROR CREATING QUARTERLY RECS " + newCountRecs[0].id,
                 details: e
             });
         }

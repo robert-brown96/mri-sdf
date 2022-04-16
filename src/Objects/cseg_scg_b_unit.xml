@@ -17,15 +17,15 @@
       <sourcelist>STDBODYLOCATION</sourcelist>
       <applications>
         <application>
-          <id>PURCHASE</id>
-          <isapplied>T</isapplied>
-        </application>
-        <application>
           <id>REVENUEARRANGEMENT</id>
           <isapplied>T</isapplied>
         </application>
         <application>
           <id>SALE</id>
+          <isapplied>T</isapplied>
+        </application>
+        <application>
+          <id>PURCHASE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
@@ -38,11 +38,7 @@
       <sourcelist>STDCOLLOCATION</sourcelist>
       <applications>
         <application>
-          <id>REVENUEARRANGEMENT</id>
-          <isapplied>T</isapplied>
-        </application>
-        <application>
-          <id>PURCHASE</id>
+          <id>SALE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
@@ -50,7 +46,11 @@
           <isapplied>T</isapplied>
         </application>
         <application>
-          <id>SALE</id>
+          <id>PURCHASE</id>
+          <isapplied>T</isapplied>
+        </application>
+        <application>
+          <id>REVENUEARRANGEMENT</id>
           <isapplied>T</isapplied>
         </application>
         <application>

@@ -92,10 +92,10 @@
   <scriptdeployments>
     <scriptdeployment scriptid="customdeploy_count_mr_limit">
       <buffersize>1</buffersize>
-      <concurrencylimit>1</concurrencylimit>
+      <concurrencylimit>5</concurrencylimit>
       <custscript_scg_reprocess_subscriptions></custscript_scg_reprocess_subscriptions>
       <custscript_scg_sea_param></custscript_scg_sea_param>
-      <custscript_scg_sub_param></custscript_scg_sub_param>
+      <custscript_scg_sub_param>[scriptid=customrecordzab_subscription.val_4572208_1126916_sb2_798]</custscript_scg_sub_param>
       <isdeployed>T</isdeployed>
       <loglevel>DEBUG</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
@@ -118,7 +118,7 @@
       <custscript_scg_sea_param></custscript_scg_sea_param>
       <custscript_scg_sub_param></custscript_scg_sub_param>
       <isdeployed>T</isdeployed>
-      <loglevel>AUDIT</loglevel>
+      <loglevel>DEBUG</loglevel>
       <queueallstagesatonce>T</queueallstagesatonce>
       <runasrole>ADMINISTRATOR</runasrole>
       <status>NOTSCHEDULED</status>

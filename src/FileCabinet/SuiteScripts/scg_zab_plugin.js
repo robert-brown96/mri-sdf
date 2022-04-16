@@ -25,7 +25,20 @@ define([
      *
      * @returns {void}
      */
-    function executePreTransactionCreation(dataIn) {}
+    function executePreTransactionCreation(dataIn) {
+        try {
+            log.debug({
+                title: "executePreTransactionCreation: Start",
+                details: Object.keys(dataIn.subscriptionCharges[0])
+            });
+            // _.forEach(dataIn.subscriptionCharges, function (c) {});
+        } catch (e) {
+            log.error({
+                title: "executePreTransactionCreation: Error",
+                details: e
+            });
+        }
+    }
 
     /**
      * Plug-In Function that allows a custom process to be triggered
@@ -48,6 +61,10 @@ define([
         });
 
         try {
+            log.debug({
+                title: dataIn.transactionId,
+                details: dataIn.lineCharges
+            });
         } catch (e) {
             //end try
             log.error({
@@ -141,7 +158,8 @@ define([
                         );
                         var fileId = screeningCSV(
                             screenCharges,
-                            dataIn.transactionId
+                            dataIn.transactionId,
+                            usageNeed
                         );
 
                         log.debug({
@@ -200,7 +218,7 @@ define([
                                                     usageString,
                                                 custbody_scg_usage_file_attach:
                                                     fileId,
-                                                location: 6,
+                                                location: 5,
                                                 custbody_scg_credit_reason: 8
                                             }
                                         });
@@ -223,7 +241,7 @@ define([
                                                     usageString,
                                                 custbody_scg_usage_file_attach:
                                                     fileId,
-                                                location: 6
+                                                location: 5
                                             }
                                         });
                                     }
@@ -419,9 +437,10 @@ define([
      *
      * @param screenCharges
      * @param tranId
+     * @param usageNeed
      * @returns {string} fileId
      */
-    function screeningCSV(screenCharges, tranId) {
+    function screeningCSV(screenCharges, tranId, usageNeed) {
         try {
             var filters = [];
             _.each(
@@ -463,9 +482,16 @@ define([
                 } //end each function
             ); //end each
 
-            var screenSearch = search.load({
-                id: "customsearch_scg_file_of_screens"
-            });
+            var screenSearch;
+            if (usageNeed === ZAB_CONSTANTS.RECORD_TYPE.USAGE_TYPE.VALUES.RHR) {
+                screenSearch = search.load({
+                    id: "customsearch_scg_file_of_screens"
+                });
+            } else {
+                screenSearch = search.load({
+                    id: "customsearch_scg_file_of_screens_2"
+                });
+            }
             var f = screenSearch.filters;
             //    for(var j; j < filters.length; j++){
             //      f.push(filters[j]);
@@ -781,3 +807,92 @@ define([
         executePostChargesUpdated: executePostChargesUpdated
     };
 });
+
+[
+    "custrecordzab_c_amount",
+    "custrecordzab_c_amount-zabtxt",
+    "custrecordzab_c_bill_date",
+    "custrecordzab_c_bill_date-zabtxt",
+    "custrecordzab_c_bill_to_customer",
+    "custrecordzab_c_bill_to_customer-zabtxt",
+    "custrecord_scg_c_billing_presentation",
+    "custrecord_scg_c_billing_presentation-zabtxt",
+    "custrecordzab_c_subscription.custrecordzab_s_billing_profile",
+    "custrecordzab_c_subscription.custrecordzab_s_billing_profile-zabtxt",
+    "custrecordzab_c_charge_item",
+    "custrecordzab_c_charge_item-zabtxt",
+    "custrecordzab_c_charge_item.custitem_scg_contract_group",
+    "custrecordzab_c_charge_item.custitem_scg_contract_group-zabtxt",
+    "custrecordzab_c_charge_item.custitem_mri_license_type",
+    "custrecordzab_c_charge_item.custitem_mri_license_type-zabtxt",
+    "custrecordzab_c_charge_type",
+    "custrecordzab_c_charge_type-zabtxt",
+    "custrecordzab_c_subscription.custrecord_scg_contracting_entity",
+    "custrecordzab_c_subscription.custrecord_scg_contracting_entity-zabtxt",
+    "custrecordzab_c_currency",
+    "custrecordzab_c_currency-zabtxt",
+    "custrecordzab_c_subscription.custrecordzab_s_customer",
+    "custrecordzab_c_subscription.custrecordzab_s_customer-zabtxt",
+    "custrecordzab_c_description",
+    "custrecordzab_c_description-zabtxt",
+    "custrecordzab_c_discount-zabtxt",
+    "custrecordzab_c_forecasted_value",
+    "custrecordzab_c_forecasted_value-zabtxt",
+    "custrecordzab_c_gross_amount",
+    "custrecordzab_c_gross_amount-zabtxt",
+    "custrecordzab_c_subscription.custrecord_su_mri_guarantor",
+    "custrecordzab_c_subscription.custrecord_su_mri_guarantor-zabtxt",
+    "internalid",
+    "internalid-zabtxt",
+    "custrecordzab_c_list_rate",
+    "custrecordzab_c_list_rate-zabtxt",
+    "custrecordzab_c_location",
+    "custrecordzab_c_location-zabtxt",
+    "custrecordzab_c_quantity",
+    "custrecordzab_c_quantity-zabtxt",
+    "custrecordzab_c_rate",
+    "custrecordzab_c_rate-zabtxt",
+    "custrecordzab_c_rate_plan",
+    "custrecordzab_c_rate_plan-zabtxt",
+    "custrecordzab_c_reference_id",
+    "custrecordzab_c_reference_id-zabtxt",
+    "custrecordzab_c_end_date",
+    "custrecordzab_c_end_date-zabtxt",
+    "custrecordzab_c_start_date",
+    "custrecordzab_c_start_date-zabtxt",
+    "custrecordzab_c_subscription_item.custrecord_scg_parent_asset",
+    "custrecordzab_c_subscription_item.custrecord_scg_parent_asset-zabtxt",
+    "custrecordzab_c_subscription",
+    "custrecordzab_c_subscription-zabtxt",
+    "custrecordzab_c_subscription_item",
+    "custrecordzab_c_subscription_item-zabtxt",
+    "custrecordzab_c_subsidiary",
+    "custrecordzab_c_subsidiary-zabtxt",
+    "custrecordzab_c_term",
+    "custrecordzab_c_term-zabtxt",
+    "custrecordzab_c_term_multiplier",
+    "custrecordzab_c_term_multiplier-zabtxt",
+    "custrecordzab_c_term_rate",
+    "custrecordzab_c_term_rate-zabtxt",
+    "custrecordzab_c_subscription.custrecord_scg_uplift_p",
+    "custrecordzab_c_subscription.custrecord_scg_uplift_p-zabtxt",
+    "zab_extended_list_rate",
+    "custrecordzab_c_charge_container",
+    "custrecordzab_c_ship_to_address_alt",
+    "custrecordzab_c_bill_to_address_alt",
+    "zab_final_ship_to_string",
+    "custrecordzab_c_customer",
+    "custrecordzab_c_customer-zabtxt",
+    "custrecordzab_c_subscription.custrecordzab_s_currency",
+    "custrecordzab_c_subscription.custrecordzab_s_subsidiary",
+    "custrecordzab_c_subscription.custrecordzab_s_location",
+    "custrecordzab_c_subscription.custrecordzab_s_payment_terms",
+    "custrecordzab_c_subscription.custrecordzab_s_line_item_shipping",
+    "zab_invert_negative_qty",
+    "zab_charge_has_mixed_rates",
+    "zab_group_key",
+    "zab_charge_count",
+    "zab_charge_has_discount",
+    "zab_created_by_zone_billing",
+    "zab_line_id"
+];

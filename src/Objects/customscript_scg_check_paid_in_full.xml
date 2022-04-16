@@ -1,14 +1,14 @@
-<usereventscript scriptid="customscript_scg_inv_group_ue">
+<usereventscript scriptid="customscript_scg_check_paid_in_full">
   <description></description>
   <isinactive>F</isinactive>
-  <name>SCG | UE | Invoice Group</name>
+  <name>SCG | Paid in Full</name>
   <notifyadmins>F</notifyadmins>
   <notifyemails></notifyemails>
   <notifyowner>T</notifyowner>
   <notifyuser>F</notifyuser>
-  <scriptfile>[/SuiteScripts/invGroupUE.js]</scriptfile>
+  <scriptfile>[/SuiteScripts/scg_checkPaidInFull.js]</scriptfile>
   <scriptdeployments>
-    <scriptdeployment scriptid="customdeploy_scg_ueinv_group">
+    <scriptdeployment scriptid="customdeploy_scg_paid_box_payment">
       <allemployees>F</allemployees>
       <alllocalizationcontexts>T</alllocalizationcontexts>
       <allpartners>F</allpartners>
@@ -18,9 +18,9 @@
       <executioncontext>ACTION|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PLATFORMEXTENSION|PORTLET|PROMOTIONS|RECORDACTION|RESTLET|RESTWEBSERVICES|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBSERVICES|WORKBOOKBUILDER|WORKFLOW</executioncontext>
       <isdeployed>T</isdeployed>
       <loglevel>DEBUG</loglevel>
-      <recordtype>INVOICEGROUP</recordtype>
+      <recordtype>CUSTOMERPAYMENT</recordtype>
       <runasrole>ADMINISTRATOR</runasrole>
-      <status>TESTING</status>
+      <status>RELEASED</status>
     </scriptdeployment>
   </scriptdeployments>
 </usereventscript>

@@ -40,5 +40,9 @@
       <isinactive>F</isinactive>
       <value>Uplift</value>
     </customvalue>
+    <customvalue scriptid="val_4526234_1126916_sb2_470">
+      <isinactive>F</isinactive>
+      <value>Order Replacement</value>
+    </customvalue>
   </customvalues>
 </customlist>

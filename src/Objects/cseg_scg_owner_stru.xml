@@ -25,11 +25,11 @@
       <sourcelist>STDCOLCUSTOMER</sourcelist>
       <applications>
         <application>
-          <id>REVENUEARRANGEMENT</id>
+          <id>SALE</id>
           <isapplied>T</isapplied>
         </application>
         <application>
-          <id>SALE</id>
+          <id>REVENUEARRANGEMENT</id>
           <isapplied>T</isapplied>
         </application>
         <application>

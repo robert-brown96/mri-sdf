@@ -31,19 +31,6 @@
       <recordtype>VENDORBILL</recordtype>
       <status>RELEASED</status>
     </scriptdeployment>
-    <scriptdeployment scriptid="customdeploy_scg_mkefldsmandbyacct_cs_in">
-      <allemployees>F</allemployees>
-      <alllocalizationcontexts>T</alllocalizationcontexts>
-      <allpartners>F</allpartners>
-      <allroles>T</allroles>
-      <audslctrole></audslctrole>
-      <eventtype></eventtype>
-      <executioncontext>ACTION|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PLATFORMEXTENSION|PORTLET|PROMOTIONS|RECORDACTION|RESTLET|RESTWEBSERVICES|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBSERVICES|WORKBOOKBUILDER|WORKFLOW</executioncontext>
-      <isdeployed>F</isdeployed>
-      <loglevel>ERROR</loglevel>
-      <recordtype>INVOICE</recordtype>
-      <status>RELEASED</status>
-    </scriptdeployment>
     <scriptdeployment scriptid="customdeploy_scg_mkefldsmandbyacct_cs_ic">
       <allemployees>F</allemployees>
       <alllocalizationcontexts>T</alllocalizationcontexts>
@@ -94,6 +81,19 @@
       <isdeployed>T</isdeployed>
       <loglevel>ERROR</loglevel>
       <recordtype>SALESORDER</recordtype>
+      <status>RELEASED</status>
+    </scriptdeployment>
+    <scriptdeployment scriptid="customdeploy_scg_mkefldsmandbyacct_cs_in">
+      <allemployees>F</allemployees>
+      <alllocalizationcontexts>T</alllocalizationcontexts>
+      <allpartners>F</allpartners>
+      <allroles>T</allroles>
+      <audslctrole></audslctrole>
+      <eventtype></eventtype>
+      <executioncontext>ACTION|ADVANCEDREVREC|BANKCONNECTIVITY|BANKSTATEMENTPARSER|BUNDLEINSTALLATION|CLIENT|CONSOLRATEADJUSTOR|CSVIMPORT|CUSTOMGLLINES|CUSTOMMASSUPDATE|DATASETBUILDER|DEBUGGER|EMAILCAPTURE|FICONNECTIVITY|FIPARSER|MAPREDUCE|OTHER|PAYMENTGATEWAY|PAYMENTPOSTBACK|PLATFORMEXTENSION|PORTLET|PROMOTIONS|RECORDACTION|RESTLET|RESTWEBSERVICES|SCHEDULED|SDFINSTALLATION|SHIPPINGPARTNERS|SUITELET|TAXCALCULATION|USEREVENT|USERINTERFACE|WEBSERVICES|WORKBOOKBUILDER|WORKFLOW</executioncontext>
+      <isdeployed>F</isdeployed>
+      <loglevel>ERROR</loglevel>
+      <recordtype>INVOICE</recordtype>
       <status>RELEASED</status>
     </scriptdeployment>
   </scriptdeployments>
