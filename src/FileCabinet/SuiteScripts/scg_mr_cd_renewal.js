@@ -104,9 +104,6 @@ define([
                     name: "custrecord_scg_cd_uplift"
                 }),
                 search.createColumn({
-                    name: "custrecord_scg_processed_count"
-                }),
-                search.createColumn({
                     name: "custrecord_scg_recurrence_count"
                 }),
                 search.createColumn({

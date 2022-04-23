@@ -81,6 +81,7 @@ define([
             "custcol_scg_do_not_bundle",
             "quantity",
             "amount",
+            "fxamount",
             "custcol_oa_date",
             "custcol_oa_employee",
             "custcol_oa_project_name",
@@ -139,7 +140,7 @@ define([
                 } else {
                     nonBundled.push({
                         quantity: result.getValue("quantity"),
-                        amount: result.getValue("amount"),
+                        amount: result.getValue("fxamount"),
                         memo: result.getValue("memo").replace("@", "at"),
                         period: `${result.getValue(
                             "custcol_rev_rec_start_date"
@@ -148,10 +149,10 @@ define([
                 }
             } else if (result.getValue("custcol_scg_do_not_bundle")) {
                 // create as non bundled item
-                if (result.getValue("amount") !== 0) {
+                if (result.getValue("fxamount") !== 0) {
                     nonBundled.push({
                         quantity: result.getValue("quantity"),
-                        amount: result.getValue("amount"),
+                        amount: result.getValue("fxamount"),
                         memo: result.getValue("memo").replace("@", "at"),
                         period: `${result.getValue(
                             "custcol_rev_rec_start_date"
@@ -162,7 +163,7 @@ define([
                 // standard invoice line item
                 productLines.push({
                     quantity: result.getValue("quantity"),
-                    amount: result.getValue("amount"),
+                    amount: result.getValue("fxamount"),
                     billing_pres: result.getValue("custcol_scg_billing_pres"),
                     period: `${result.getValue(
                         "custcol_rev_rec_start_date"
